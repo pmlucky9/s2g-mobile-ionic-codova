@@ -1,0 +1,22 @@
+.menu {
+	.item {
+  	font-size: $menu-item-font-size;
+  	padding:0px 15px;
+  	height:$bar-height + 1;
+  	line-height:$bar-height + 1;
+  	}
+}
+.side-menu {
+	background-color:$core-light;
+}
+
+.platform-ios7.platform-cordova {
+	//iOS7 has a status bar which sits on top of the header.
+	// Bump down everything to make room for it. However, if
+  	// if its in Cordova, and set to fullscreen, then disregard the bump.
+	&:not(.fullscreen) {
+		.menu {
+		top:$ios7-statusbar-height;
+		}
+	}
+}

@@ -1,0 +1,231 @@
+@import "_variables-s2g";
+@import "_mixins";
+@import "../lib/ionic/scss/ionic";
+@import "_fonts";
+@import "entypo";
+@import "_layout";
+@import "_animations";
+@import "_intro";
+@import "_forms";
+@import "_item";
+@import "_images";
+@import "_buttons";
+@import "_bar";
+@import "_type";
+@import "_detail";
+@import "_popup";
+@import "_menu";
+@import "_scaffolding";
+@import "_wouldyou";
+@import "_util";
+@import "_neighborhood";
+@import "_modals";
+
+@import "products";
+@import "feed";
+@import "about";
+
+
+// your slick styles can go here...
+// when Sass processes, both Ionic's Sass and your Sass will combine 
+// into one file and saved in your app's directory as css/app.css
+
+
+
+.facebook-button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	background-color:#637aad;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+}
+.facebook-button:hover {
+	background-color:#5972a7;
+}
+.facebook-button:active {
+	position:relative;
+	top:1px;
+}
+
+
+/* Global Styles */
+.col {
+	.item-input {
+		input {
+		@include flex(1, 0, auto);
+		}
+	}	
+}
+
+.item-select {
+  select {
+   max-width: 100%;
+   direction:ltr;
+   }
+}
+
+
+
+.question {
+	text-align:center;
+	padding-top:$bar-height + 20;
+	.text {
+		padding:20px;
+	}
+
+	.button {
+		opacity:0.7;
+
+		&.selected {
+			font-weight: bold;
+			text-transform: uppercase;
+			border-width:2px;
+			opacity:1;
+		}
+	}
+}
+.button.wide {
+	width:100%;
+}
+
+
+
+
+.create-list.hidden {
+	display:none;
+}
+
+
+.create-list.tile {
+	img {
+		width:70px;
+		float:left;
+	}
+	.text {
+		padding-left:25px;
+	}
+	.remove {
+		float:right;
+		color:$balanced;
+		cursor:pointer;
+	}
+}
+
+
+.tile.disabled {
+	color:#ccc;
+
+	h3 {
+		color:#ccc;
+	}
+	img {
+		opacity:0.5;
+	}
+	.remove {
+	color:#ccc;
+
+		
+	}
+
+}
+.selectall {
+	background-color:$stable;
+	.icon {
+	float:right;
+	}
+	&.item {
+	padding:7px 20px;
+	}
+}
+
+.icon-action {
+	font-size:$item-icon-font-size;
+	cursor:pointer;
+}
+
+li.item.selected {
+	background-color:$positive;
+	color:white;
+}
+
+.full-height .slider {
+	height:100%;
+}
+.full-height .scroll {
+	height:100%;
+}
+.bg-stable {
+	background-color:$stable;
+}
+.bg-white {
+	background-color:#fff;
+}
+.button-20 {
+	width:16%;
+	margin-right:2%;
+}
+.button-80 {
+	width:80%;
+}
+.button-icon {
+	cursor:pointer;
+}
+.button-50 {
+	width:49%;
+}
+.button-left {
+	margin-right:2%;
+}
+
+.bottom-row {
+  position:fixed;
+  bottom:0px;
+}
+
+.padding .bottom-row {
+	bottom:$content-padding;
+	margin:-$content-padding;
+}
+.create-list .scroll {
+	padding-bottom:70px;
+}
+.phone-header {
+  height: 20px;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  background-color: $calm;
+}
+
+.box-show-setup, .box-hide-setup {
+  -webkit-transition:all linear 5s;
+  -moz-transition:all linear 5s;
+  -ms-transition:all linear 5s;
+  -o-transition:all linear 5s;
+  transition:all linear 5s;
+}
+.box-show-setup {
+	opacity:0;height:0;
+}
+  
+.box-show-setup.box-show-start {
+	opacity:1; height:100%;
+}
+.box-hide-setup {
+	opacity:1;height:0;
+}
+.box-hide-setup.box-hide-start {
+	opacity:0; height:100%;
+}
+
+
+
+
+

@@ -1,0 +1,133 @@
+.neighborhood-map {
+	position: relative;
+	height: 225px;
+	padding-bottom:25px;//matches size of handle
+	.drag-handle {
+		height: 25px;
+		line-height: 25px;
+		padding-top:3px;
+		font-size:17px;
+		position: absolute;
+		bottom: 0;
+		z-index: 11;
+		width: 100%;
+		background: $core-light;
+		text-align: center;
+		cursor: pointer;
+	}
+
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+    .loading-panel {
+    	height:0px;
+    	opacity:0px;
+    	-webkit-transition: height 1s ease-in-out;
+	    -moz-transition: height 1s ease-in-out;
+	    -o-transition: height 1s ease-in-out;
+	    transition: height 1s ease-in-out;
+
+	    -webkit-transition: opacity .7s ease-in-out;
+	    -moz-transition: opacity .7s ease-in-out;
+	    -o-transition: opacity .7s ease-in-out;
+	    transition: opacity .7s ease-in-out;
+    }
+    &.loading {
+    	.loading-panel {
+    		display:block;
+    		position:absolute;
+    		width:100%;
+    		top:0px;
+    		height: 100%;
+			background-color: white;
+			text-align: center;
+			padding-top: 10px;
+			z-index:10;
+    	}
+    }
+}
+
+
+
+#neighborhood-lists {
+	text-align: center;
+	color: $core-med-light;
+	position: relative;
+	background-color:$white;
+	height:80%;
+	h3 {
+		color: $core-med-light;
+		padding:6px 0px;
+	}
+
+	.item {
+		margin: 0;
+		padding: 0px 10px;
+		overflow: visible;
+		border:none;
+		.picture {
+			border:1px solid $core-light;
+		}
+		.rank {
+			position: absolute;
+			height:25px;
+			width:25px;
+			border-radius:100%;
+			bottom: 0px;
+			right: 0px;
+			background: $brand;
+			color: #fff;
+			font-size: 12px;
+			line-height:25px;
+			z-index: 4;
+			padding-top:2px;
+		}
+	}
+
+	.carousel-container {
+
+		width: 93%;
+		margin: auto;
+		overflow: hidden;
+
+		.items-carousel {
+			width: 100%;
+			padding: 3px;
+			overflow: hidden;
+
+			.item:last-child {
+				margin-right: 0;
+			}
+
+		}
+	}
+
+	.prev, .next {
+		position: absolute;
+		top: 40%;
+		padding:6px;
+		background: rgba($core-med, .7);
+		color: #FFF;
+		font-size: 17px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.prev {
+		left: 3px;
+	}
+
+	.next {
+		right: 3px;
+	}
+
+	.slider-slides {
+		height: auto;
+	}
+
+	.slider-slide {
+		height: auto;
+	}
+}
+

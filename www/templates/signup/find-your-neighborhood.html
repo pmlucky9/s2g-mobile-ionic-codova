@@ -1,0 +1,37 @@
+<ion-view class="intro location" title="Create Account">
+    <ion-content has-bouncing="false" class="find-location-pane" ng-init="track('Find Your Neighborhood','Login','Page Viewed')">
+      <form name="findNeighborhood" novalidate>
+        <div class="row no-padding">
+          <div class="col no-padding">
+            <div class="form no-padding">
+              <div class="row no-padding">
+                <div class="col col-80 no-padding">
+                  <div class="list">
+                    <label class="item item-input">
+                    <input type="text" placeholder="Home address" ng-model="entry.address" required ng-change="autoComplete(entry.address)">
+                    </label>  
+                    <label class="item item-input">
+                    <input type="text" placeholder="Apt #" ng-model="entry.apt">
+                    </label> 
+                  </div>
+                </div>
+                <div class="col col-center no-padding right-button"> 
+                  <button class="button button-positive right-arrow" ng-disabled="(findNeighborhood.$invalid || data.isLoading)" ng-click="locateAddress(); track('Find Your Neighborhood','Login','Locate Tapped')" animate-on-loading data-text="Go" data-loading="{{data.isLoading}}"></button>
+                </div>
+              </div>        
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ul class="list predictions" ng-show="showList">
+              <li class="item" ng-repeat="prediction in predictions | limitTo:3" ng-click="setAddress(prediction.fullAddress); track('Find Your Neighborhood','Login','Address Completed')">{{ prediction.fullAddress }}</li>
+              <li class="item small-padding"><div class="googlemaps"></div></li>
+            </ul>
+            <div class="message"><h2>Enter your home address to start sharing with your neighbors.</h2></div>
+            <span class="why-text vert-center button-help ion-help-circled" ng-click="showMessage(messages.neighborhood)">Why we ask</span>
+          </div>
+        </div>
+    </form>
+  </ion-content>
+</ion-view>

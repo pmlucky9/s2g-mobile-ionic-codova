@@ -1,0 +1,19 @@
+<ion-view class='item-of-the-day' title="Item of the week">
+  <ion-content has-bouncing="true">
+  
+
+    <ion-slide-box show-pager="false">
+      <ion-slide ng-repeat="item in items" ng-click='showItem(item)'>
+        <div class="item">
+          <div class="from-date">{{ item.item_of_the_week }}</div>
+          <div class="image"><span class="helper"></span><img src="{{ item.image }}" /></div>
+          <p class='title'>{{ item.title }}</p>
+          <div class="description">
+            <div class="text">{{ item.description }}</div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+  <ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

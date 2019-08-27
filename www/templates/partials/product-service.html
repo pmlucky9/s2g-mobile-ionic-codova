@@ -1,0 +1,21 @@
+<div class="row product-service" >
+  <div class="col col-50">
+    <label class="item item-radio product">
+      <input type="radio" name="itemType" ng-model="item.type" value="product" ng-Required="true" >
+      <div class="item-content">Product</div>
+      <i class="radio-icon ion-checkmark"></i>
+    </label>
+  </div>
+  <div class="col col-50">
+  <label class="item item-radio service">
+    <input type="radio" name="itemType" ng-model="item.type" value="service" ng-Required="true" >
+    <div class="item-content">Service</div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+</div>   
+</div>
+<div class="row" ng-show="itemSubmitted && itemEdit.itemType.$error.required">
+  <div class="col">
+    <div class="error clearfix" >Please select Product or Service.</div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<ion-content has-bouncing="true">
+    <ng-include ng-if="!data.editItem" src="'/templates/partials/product-service.html'"></ng-include>
+    <div class="row">
+      <div class="col">
+        <label class="item item-input large">
+        <input type="text" placeholder="{{item.type | capitalize }} Name*" ng-model="item.name" required name="title" lose-focus-on-return>
+        </label> 
+        <div class="notes">Recommended: Keep titles to 20 characters or less.</div>  <!-- based on item width on borrow screen -->           
+      </div>
+    </div>
+    <div class="row" ng-show="(itemEdit.title.$dirty && itemEdit.title.$error.required) || (data.itemSubmitted && itemEdit.title.$error.required)">
+      <div class="col">
+        <div class="error clearfix" >Title is required.</div> 
+      </div>
+    </div>
+    <div class="editable-image horizontal-image"  ng-class="{'change': item.image, 'upload':!item.image, 'loading-image':image.isSaving, 'save-error':image.saveError}" ng-click="showPhotoMenu()" back-image="{{ item.image }}">
+      <div class="add"><i class="icon ion-upload"></i><div class="instructions">Tap to upload photo</div></div>
+      <div class="icon loading "><i class="ion-loading-b"></i></div>
+      <div class="icon error-icon"><i class="ion-alert-circled"></i></div>
+    </div>
+    <input type="hidden" ng-model="item.image" required name="image">
+    <div class="row">
+      <div class="col">
+        <div class="error clearfix" ng-show="data.itemSubmitted && itemEdit.image.$error.required">Image is required.</div>  
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      
+      <div class="list option-item highlight">
+          <a class="item item-icon-right" ng-click="openModal(rateOptions, item.unit, item.rate)" >
+            <span ng-show="item.rate >= 0">${{ item.rate }}<span ng-if="item.unit !== 'None'">/{{ item.unit }}</span></span>
+            <span ng-show="data.editLoaded && !item.rate && item.rate != 0">Set Your Price</span>
+            <i class="icon ion-chevron-right"></i>
+          </a>
+      </div>
+      <input type="hidden" ng-model="item.rate" ng-Required="true" name="rate">
+      <input type="hidden" ng-model="item.unit" ng-Required="true">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="error clearfix" ng-show="data.itemSubmitted && itemEdit.rate.$error.required">Rate is required.</div> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"> 
+        <label class="item item-input text">
+          <textarea placeholder="{{item.type | capitalize }} Description*" rows="3" ng-model="item.description" ng-Required="true" name="description"  lose-focus-on-return></textarea>
+        </label>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="error clearfix" ng-show="(itemEdit.description.$dirty && itemEdit.description.$error.required) || (data.itemSubmitted && itemEdit.description.$error.required)">Description is required.</div>
+      </div>
+    </div>   
+    <div class="row">
+    <div class="col-10 vert-center">
+    <div class="charity large"></div>
+    </div>
+    <div class="col">
+        <div class="range range-positive">
+          <span class="left-extreme label">Profit: <br/>{{ (100 - item.charity_contrib.rate ) }}%</span>
+          <input type="range" min="0" max="100" ng-model="item.charity_contrib.rate">
+          <span class="right-extreme label">Charity:<br/> {{ item.charity_contrib.rate }}%</span>
+        </div>
+    </div>
+    </div>
+</ion-content>

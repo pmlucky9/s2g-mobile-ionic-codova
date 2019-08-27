@@ -1,0 +1,70 @@
+.base-image {
+	display: block;
+	width: 100%;
+	position: relative;
+	height: 0;
+	overflow: hidden;	
+	background-size:cover;
+	background-repeat:none;
+	background-position:center center;
+}
+.square-image {
+	@extend .base-image;
+	padding: 100% 0 0 0;
+}
+.horizontal-image {
+	@extend .base-image;
+	padding: 75% 0 0 0;
+}
+.horizontal-image.upload {
+	@extend .base-image;
+	padding: 25% 0 0 0;
+}
+//used when image has full-bleed on the tile (like on lend)
+.thumb-image {
+	@extend .base-image;
+	padding: 20% 0 0 0;
+	width: 20%;
+	float:left;
+	z-index:5;
+}
+
+//currently only used on profile edit page
+.image-100 {
+	width:100%;
+	img {
+	width:100%;
+	}
+}
+
+//used on last would-you page
+.centered-image {
+  width:100%;
+  display:block;
+  position:relative;
+  height:0;
+  padding:70% 0 0 0;
+  overflow:hidden;
+	  img {
+	  position:absolute;
+	  display:block;
+	  max-width: 100%;
+	  max-height:100%;
+	  left:0;
+	  right:0;
+	  top:0;
+	  bottom:0;
+	  margin:auto; 
+	  border:1px solid $calm;   
+	}
+}
+
+//used on conversation page - fixed height and width
+.convo-image {
+	@extend .base-image;
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	float:left;
+	z-index:5;
+}

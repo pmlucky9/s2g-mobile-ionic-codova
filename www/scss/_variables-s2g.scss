@@ -1,0 +1,94 @@
+//--------S2G--------------------------------------------
+//Custom S2G Variables;
+//Colors
+$brand:			#0d305c;
+$main-dark:		#1f6adb;
+$main-med:		#0095ef;
+$main-light:	#3cbcff;
+
+$core-dark:		#323232;
+$core-med-dark:	#414141;
+$core-med:		#4e4e4e;
+$core-med-light:#8f8f8f;
+$core-light:	#cecece;
+
+$white:			#ffffff;
+$error:			#ce1c00;
+
+$base-color:					  $core-med;
+
+$gutter: 		10px;	
+$ios7-statusbar-height:           20px;
+
+// Fonts
+// -------------------------------
+
+$font-thin:			'HelveticaNeueLT-Thin-35';
+$font-light:		'HelveticaNeueLT-Light-45';
+$font-medium:		'HelveticaNeueLT-Medium-65';
+$font-bold:			'HelveticaNeueLTStd-Bd-75';
+
+$font-family-thin:			$font-thin, Helvetica, Arial, "Lucida Grande";
+$font-family-light:    		$font-light, "Helvetica Neue", Helvetica, Arial, "Lucida Grande";
+$font-family-med:    		$font-medium, Helvetica, Arial, "Lucida Grande";
+$font-family-bold:		    $font-bold, Helvetica, Arial, "Lucida Grande";
+
+$menu-item-font-size:	16px;
+$content-padding-small: 8px;
+$form-line-height:		24px;
+$form-font-size:		16px;
+$font-size-base:		14px;
+$font-size-med:			16px;
+
+
+//---------IONIC -----------------------------------------
+//Override Ionic Variables Here
+// Colors
+// -------------------------------
+// These are ionic colors - using these names can work in conjunction with other predefined styles
+
+$light:                           $white;
+$stable:                          $core-light;
+$calm:                            $core-med-light;
+$energized:                       $core-med-dark;
+$dark:                            $core-dark;
+
+$positive:                        $main-med;
+$royal:                           $main-dark;
+$balanced:                        $main-med;
+
+$assertive:                       $error;
+
+
+// Base
+// -------------------------------
+$base-background-color:           #f6f6f6;
+$font-family-sans-serif:          $font-family-light;
+$font-family-light-sans-serif: 	  $font-family-thin;
+
+$font-size-large:				  24px;
+$font-size-small:				  12px;
+$font-family-base:                $font-family-sans-serif;
+
+$headings-font-family:            $font-family-bold;
+$headings-font-weight:            inherit;
+$headings-line-height:            1.2;
+
+// Type
+//--------------------------------
+$bar-title-font-size:             24px;
+$button-bar-button-font-size:	  17px;
+
+
+
+//Items
+//---------------------------------
+$item-font-size:				$font-size-base;
+$item-icon-font-size: 			17px;
+$item-light-border:				 $core-light;
+
+//Forms
+//--------------------------------
+$input-color:                     $base-color;
+$input-label-color:               $base-color;
+$input-color-placeholder:         $core-med-light;

@@ -1,0 +1,15 @@
+<div class="modal" ng-controller="EditCategoriesCtrl">
+	<ion-header-bar class="bar-positive">
+		<div class="button button-icon icon ion-ios7-arrow-back" ng-click="closeCategories(); track('Lending Categories','edit','Back Tapped')"></div>
+	  		<h1 class="title">Categories</h1>
+	  	<div class="button button-positive" ng-click="saveCategories()">Save</div>
+	</ion-header-bar>
+	<ion-content class="padding">
+	<div class="intro-text">Select the categories that you are interested in borrrowing or lending.</div>
+		<ul class="list">
+			<li class="item" ng-class="{'selected':(selectedCategories.indexOf(cat) > -1)}" ng-repeat="cat in categories" ng-click="selectCategory(categories.indexOf(cat))">
+			{{cat}}
+			</li>
+		</ul>	
+	</ion-content>
+</div>

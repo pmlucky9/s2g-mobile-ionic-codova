@@ -1,0 +1,21 @@
+.popup {
+  // position: fixed;
+  // top: 20px;
+  // left: 50%;
+  width:325px;
+  max-width:96%;
+  // margin-top:0px !important;
+  .popup-head {
+  	padding:15px 10px;
+  	}
+  .popup-buttons .button {
+  	font-size:14px;
+  	height:auto;
+    padding:2px 4px 1px;
+    line-height:26px;
+    min-height:30px;
+    &.col-offset-80 {
+    margin-left:80%;
+    }
+  }
+}

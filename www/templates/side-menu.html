@@ -1,0 +1,31 @@
+<!-- Side menu -->
+<ion-side-menus class="side-menu">
+  
+  <ion-side-menu-content>
+      <ion-nav-bar class="bar-positive nav-title-slide-ios7">
+        <button menu-toggle="left" ng-show="showMenuButton.toggle" class="button button-icon icon ion-navicon"></button>
+        <ion-nav-back-button class="button button-icon icon ion-ios7-arrow-back" ng-click="handleBack();">
+        </ion-nav-back-button>
+      </ion-nav-bar>
+      <ion-nav-view name="main-container"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content>
+      <ul class="list">
+        <li><a nav-clear menu-close href="#/main/home" class="item" ng-click="track('Menu','Menu','Home Tapped')">Home</a></li>
+        <li><a nav-clear menu-close href="#/main/feed" class="item" ng-click="track('Menu','Menu','Inbox Tapped')">Inbox</a></li>
+        <li><a nav-clear menu-close href="#/main/items/index/" class="item" ng-click="track('Menu','Menu','Borrow Tapped')">Borrow</a></li>
+        <li><a nav-clear menu-close href="#/main/shoutouts/index/" class="item" ng-click="track('Menu','Menu','Lend Tapped')">Lend</a></li>
+        <li><a nav-clear menu-close href="#/main/items/index/?type=mine" class="item" ng-click="track('Menu','Menu','My Items Tapped')">My Items</a></li>
+        <li><a nav-clear menu-close href="#/main/shoutouts/index/?type=mine" class="item" ng-click="track('Menu','Menu','My Requests Tapped')">My Requests</a></li>
+        <li><a nav-clear menu-close href="#/main/neighborhood" class="item" ng-click="track('Menu','Menu','Neighborhood Tapped')">Neighborhood</a></li>
+        <li><a nav-clear menu-close href="#/main/invite" class="item" ng-click="track('Menu','Menu','Invite Neighbors Tapped')">Invite Neighbors</a></li>
+        <li><a nav-clear menu-close href="#/main/profile-show/view" class="item" ng-click="track('Menu','Menu','My Profile Tapped')">My Profile</a></li>     
+        <li><a nav-clear menu-close href="#/main/about" class="item" ng-click="track('Menu','Menu','About Tapped')">About/Help</a></li>
+        <li><a nav-clear menu-close href="#/main/developer" class="item" ng-click="track('Menu','Menu','Developer Tapped')">Developer</a></li>
+      </ul>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

@@ -1,0 +1,34 @@
+// Headings
+// -------------------------
+h1, .h1 {
+	font-family: $font-family-light-sans-serif;
+	line-height: $headings-line-height;
+	letter-spacing: .5px;
+}
+
+h2, h3, h4, h5, h6,
+.h2, .h3, .h4, .h5, .h6 {
+  color: $main-med;
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+  margin-bottom:0px;
+}
+
+h2, .h2 { font-size: floor($font-size-base * 1.75); } // ~21px
+
+h3, .h3 { 
+	font-size: ceil($font-size-base * 1.21428571); // 17/14
+	color: $main-med;
+} 
+
+.highlight {
+	color:$main-med;
+}
+.padding-small { 
+	padding:$content-padding-small;
+	}
+
+.align-center {
+	text-align:center;
+}
+

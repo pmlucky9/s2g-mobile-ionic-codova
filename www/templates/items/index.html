@@ -1,0 +1,43 @@
+
+<ion-view class='products' title="{{ pageTitle }}" left-buttons="leftButtons" hide-back-button="true">
+  <!-- <ion-header-bar class="bar-subheader item-input-inset search-bar">
+    <label class="item-search item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="searchQuery">  
+    </label> 
+    <button class="icon button-clear ion-close-circled" ng-click="searchQuery = ''"></button>   
+  </ion-header-bar>  -->
+  <ion-content has-bouncing="true" delegate-handle="itemScroll">
+    <ion-refresher on-refresh="updateItems(true)"
+      pulling-text="Pull to refresh..."
+      refreshing-icon="ion-loading-b">
+    </ion-refresher>
+     <!--On the android htc one, if the loading-block is still in the dom after the closing animation, scrolling crashes.
+         The workaround below is to display: none and skip the animation. -->
+    <div class="loading-block" ng-class="contentLoaded ? 'hideme' : ''"><span class="loading-icon ion-loading-b"></span> <span class="text">Loading...</span></div> 
+    <div ng-show="contentLoaded">
+      <!-- collection-repeat="item in items | filter : searchQuery"  -->
+      <div class="col col-50" 
+        collection-repeat="item in items" 
+        collection-item-width="'50%'" 
+        collection-item-height="getItemHeight()" //calculate height of item
+        >
+        <div class="item tile vertical" 
+          ng-click="showItem(item.id)"
+          ng-class="{mine: currentUser.userId == item.lender}">
+          <div class="square-image" back-image="{{ item.image }}" type="item" /></div>
+          <div class="text">
+            <div class="col col-100"><h4>{{ item.name }}</h4></div>
+             
+            <div class="highlight col col-80" ng-if="contentLoaded && item.rate >= 0">${{ item.rate }}<span ng-if="item.unit !== 'None'">/{{ item.unit }}</span></div>
+            <div class="highlight col col-80" ng-if="contentLoaded && !item.rate && item.rate != 0">$Ask Me</div>
+            <div class="highlight col small col-80" ng-if="contentLoaded && item.id == 'WouldYou'">{{ item.rate }}</div>
+            <div class="highlight col col-20 align-right" ng-title={{item.charity_contrib.rate}} ng-show="item.charity_contrib.rate > 0"><div class="charity"></div></div>
+             
+          </div>
+        </div>
+      </div> 
+    </div> 
+  </ion-content>
+  <ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

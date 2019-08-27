@@ -1,0 +1,25 @@
+.about {
+	.flex {
+		@include display-flex;
+		@include flex-direction(column);
+		div {
+		margin-bottom:20px;
+		}
+	}
+	.logo {
+		width:90%;
+		margin:0px auto;
+	}
+	.intro-text {
+		font-family:$font-family-bold;
+	}
+	ul { 
+		margin-bottom:20px;
+		li {
+		@include display-flex;
+		@include justify-content(space-between);
+		}
+		
+	}
+}
+

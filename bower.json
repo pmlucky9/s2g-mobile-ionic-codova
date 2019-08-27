@@ -1,0 +1,21 @@
+{
+  "name": "MyNeighbor",
+  "version": "0.0.1",
+  "authors": [
+    "seb_martel@yahoo.com"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "www/components",
+    "www/spec",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "steroids-js": "3.1.x",
+    "restangular": "~1.3.1",
+    "lodash": "~2.4.1",
+    "steroids-addons": "https://17546:GAWAEFBHN8G32UKFJ6WQA7WSQLQKRN2XJXT7R6ACCR3NV9J6NZHYLLM3QTT6CRYWSLZE2JS7LY@addons.appgyver.com/steroids-addons.js?version=3.5.1"
+  }
+}

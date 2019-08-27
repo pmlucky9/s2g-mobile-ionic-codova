@@ -1,0 +1,51 @@
+<!--
+  This template loads for the 'signup-1' state (app.js)
+-->
+<ion-view class="intro" title="" hide-back-button="true" hide-nav-bar="true">
+    <ion-content has-bouncing="false" scroll="false">
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index); trackSlideChanged($index);" show-pager="true">
+        <ion-slide>
+          <div class="box row">
+            <div class="col col-top">
+            <h1>Welcome to your neighbor powered marketplace.</h1>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="box row">
+          <div class="col col-top">
+            <h1>Borrow and lend goods and services.</h1>
+            <img src="../img/screen3_image.png"/>
+          </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="box row">
+          <div class="col col-top">
+            <h1>Save, earn &amp; raise money together with neighbors.</h1>
+            <img src="../img/screen4_image.png"/>
+          </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="box row">
+          <div class="col col-top">
+            <h1>Join your neighbors now!</h1>
+            
+          </div>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+
+
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-positive">
+    <div class="button-bar">
+      <a class="button button-positive" href="#/login" ng-click="track('Welcome','Login','Login Tapped')">Sign In</a>
+      <a class="button button-positive" href="#/find-your-neighborhood" ng-click="track('Welcome','Login','Create Tapped')">Create Account</a>
+    </div>
+  </ion-footer-bar>
+    
+
+</ion-view>

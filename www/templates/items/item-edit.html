@@ -1,0 +1,12 @@
+<ion-view class="detail product edit" title="Edit {{ item.type | capitalize }}"  >
+  <form name="itemEdit" novalidate> 
+  <ng-include src="'/templates/items/edit-form.html'" ng-controller="items.editFormCtrl"></ng-include>
+  <ion-footer-bar class="bar bar-footer bar-positive">
+    <div class="button-bar">
+      <a class="button" ng-click="saveItem(item.id, itemEdit.$valid)" ng-disabled="image.isSaving" animate-on-loading data-text="Save" data-loading="{{ data.isSaving }}">Save</a>
+      <a class="button" ng-click="deleteItemPopup()">Delete</a>
+      <a class="button pull-right" ng-click="goBack(); track('Edit Product','edit','Cancel Tapped')">Cancel</a>
+    </div>
+  </ion-footer-bar>
+  </form>
+</ion-view>

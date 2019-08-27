@@ -1,0 +1,50 @@
+
+<ion-view class="inbox" title="Inbox" hide-back-button="true">
+  <ion-content has-bouncing="true">
+  <ion-refresher on-refresh="getInbox(); track('Inbox','root','Pull To Refresh')"
+       pulling-text="Pull to refresh..."
+       refreshing-text="Refreshing!"
+       refreshing-icon="ion-loading-c">                   
+    </ion-refresher>
+   <div class="loading-block" ng-class="contentLoaded ? 'closed' : ''"><span class="loading-icon ion-loading-b"></span> <span class="text">Loading...</span></div>
+  <ion-list class="top-margin" ng-show="contentLoaded">
+    <ion-item class="reply tile horizontal" ng-repeat="reply in replies" ng-click="showConversation(reply.id, reply.item.id, reply.shoutout.id)">
+      <div ng-if="reply.shoutout">
+        <div class="thumb-image" back-image="{{reply.borrower.id == currentUser.id  && (reply.lender.avatar || noAvatar(reply.lender.gender)) || (reply.borrower.avatar || noAvatar(reply.borrower.gender))}}"/></div>
+        <div class="text">         
+          <h4 ng-if="reply.borrower.id == currentUser.id">{{reply.lender.nickname}}. contacted you about your request for</h4>
+          <h4 ng-if="reply.lender.id == currentUser.id">You contacted {{reply.borrower.nickname}}. about <pronoun data-gender="{{reply.borrower.gender}}" data-neutral="the"></pronoun> request for</h4>
+          <div class="highlight">{{reply.shoutout.title}}</div>          
+        </div>
+        <div class="meta">
+          <div class="messages">Messages: {{reply.borrowerMessages + reply.lenderMessages}}</div>
+          <div class="date">Latest: <span am-time-ago="reply.lastUpdated"></span></div>
+        </div>
+      </div>
+      <div ng-if="reply.item">
+        <!-- if my item show borrower 
+             if not my item show lender only if he has replied -->
+        <div class="thumb-image" ng-if="reply.lender.id == currentUser.id" back-image="{{ reply.borrower.avatar || noAvatar(reply.borrower.gender) }}"></div>
+        <div class="thumb-image" ng-if="reply.borrower.id == currentUser.id && reply.lenderMessages > 0" back-image="{{ reply.lender.avatar || noAvatar(reply.lender.gender) }}"></div>
+        <div class="thumb-image" ng-if="reply.borrower.id == currentUser.id && reply.lenderMessages == 0" back-image="{{noAvatar(reply.lender.gender)}}"></div>
+        <div class="text">          
+          <h4 ng-if="reply.lender.id == currentUser.id">{{reply.borrower.nickname}}. contacted you about your</h4> 
+          <h4 ng-if="reply.borrower.id == currentUser.id">You contacted <span ng-if="reply.lenderMessages > 0">{{reply.lender.nickname}} about <pronoun data-gender="{{reply.lender.gender}}" data-neutral=""></pronoun></span><span ng-if="!reply.lenderMessages > 0"> your neighbor about their</span></h4>  
+           <div class="highlight">{{ reply.item.name }}</div>
+        </div>
+        <div class="meta">
+          <div class="messages">Messages: {{reply.borrowerMessages + reply.lenderMessages}}</div>
+          <div class="date">Latest: <span am-time-ago="reply.lastUpdated"></span></div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-list class="top-margin" ng-if="replies.length == 0">
+    <ion-item class="empty tile">
+        You have no messages. To start lending with your neighbors, <span class="emphasis">create</span> an item, submit a <span class="emphasis">request</span> or reply to a <span class="emphasis">borrow</span> or <span class="emphasis">lend</span> request.
+    </ion-item>
+  </ion-list>
+    
+  </ion-content>
+  <ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

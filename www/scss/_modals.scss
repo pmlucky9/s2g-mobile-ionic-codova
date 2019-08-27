@@ -1,0 +1,66 @@
+
+.modal.invite {
+    .image {
+        border: 1px solid black;
+        width: 100px;
+        height: 99px;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
+
+    .padding {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .list {
+        margin-top: 100px;
+        label.email {
+            width: 47%;
+            float: left;
+            margin-left:10px;
+        }
+        label.text {
+            width: 47%;
+            margin-left: 99%;
+            margin-right: 10px;
+        }
+        .item-radio .item-content {
+            padding-right: 20px;
+        }
+    }
+}
+.modal.notification {
+  height:55px;
+  min-height:55px;
+  background-color:$brand;
+  color:$white;
+  top:0;
+  .avatar {
+    width:45px;
+  }
+  .content {
+    padding:0px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .close {
+    font-size:24px;
+    color:$core-med-light;
+    line-height:45px;
+    vertical-align:middle;
+    padding-top:10px;
+    width:25px;
+  }
+  .row {
+  margin-top:1px;
+  } 
+}
+.platform-ios {
+    .modal.notification {
+    top:$ios-statusbar-height;
+    }
+}

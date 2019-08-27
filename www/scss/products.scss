@@ -1,0 +1,297 @@
+
+
+ion-view.show-product, ion-view.item-of-the-day {
+     
+    .range {
+
+    }
+
+    .description {
+        background-color: white;
+        padding: 10px;
+    }
+    .price {
+        font-size: 20px;
+        padding: 10px;
+        color: $button-positive-active-bg;
+        font-weight: bold;
+        margin-bottom: 0px;
+        text-align: right;
+        }
+
+    .text {
+        width: 100%;
+        white-space: normal;
+        }
+
+    .image {
+        padding-top:$content-padding;
+        padding-bottom:$content-padding;
+        width: 100%;
+        text-align: center;
+        background: white;
+            img {
+                background : rgba(0,0,0,0.4);
+                vertical-align: middle;
+                width:100%;
+                max-height: 250px;
+                max-width: 250px;
+            }
+
+        }
+
+
+    h2, h3 {
+    padding:$content-padding 0px;
+    color:$button-positive-active-bg;
+    
+    }
+    h2 {
+    font-size:30px;
+    }
+    h3 {
+    font-size: 18px;
+    }
+    .request {
+        background-color:#fff;
+        border-bottom:1px solid $calm;
+        width:100%;
+        margin-bottom:$content-padding;
+        .thumbnail {
+            width:60px;
+            height:60px;
+            background-size:60px auto;
+            background-repeat:no-repeat;
+            float:left;
+        }   
+    }
+    &.edit-view {
+        .image {
+            img {
+                border:1px solid $positive;
+            }
+        }
+        input {
+        background-color:$stable;
+        border:1px solid $calm;
+
+        }
+        textarea {
+        background-color:$stable;
+        }
+        .price { 
+            .input-label {
+                width:auto;
+            }
+            &.item-input input {
+            @include flex(1, 0, 80%);
+            }
+        }
+
+    }
+}
+
+ion-view.item-of-the-day {
+    .description { 
+        background-color: transparent !important;
+    }
+    .item {
+        .from-date {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .image {
+            height: 250px !important;
+        }
+    }
+}
+
+
+
+ion-view.requests {
+    .request {
+        background: white;
+        margin: 10px;
+        border: 1px solid black;
+        padding: 0px;
+        height: 101px;
+    }
+
+    .image {
+        border-right: 1px solid black;
+        float: left;
+        width: 100px;
+        height: 99px;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
+    .description {
+        margin-left: 105px;
+        width: 67%;
+        p.title {
+            font-size: 14px;
+            color: #346BB2;
+            font-weight: bold;
+            margin-bottom: 0px;
+        }
+        .close {
+            float: right;
+            font-size: 20px;
+            position: relative;
+            top: -16px;
+            margin-right: 15px;
+        }
+        p.subtitle {
+            font-size: 15px;
+            color: #346BB2;
+            font-weight: bold;
+            margin-bottom: 0px;
+            margin-top: 10px;
+        }
+        p.text {
+            margin-bottom: 5px;
+        }
+        .price {
+            float: right;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+    }
+}
+
+.show-request {
+    .user-detail {
+        border:1px solid $calm;
+        background-color:$stable;
+        width:100%;
+        padding:$content-padding;
+    }
+
+        .list {
+            label.product {
+                width: 47%;
+                float: left;
+            }
+            label.service {
+                width: 47%;
+                margin-left: 99%;
+            }
+            .item-radio .item-content {
+                padding-right: 20px;
+            }
+        }
+
+        .description {
+            label.name {
+                font-size: 20px;
+                margin-bottom: 10px;
+                border: 0px;
+                input {
+                    font-size: 20px;
+                }
+                ::-webkit-input-placeholder {
+                    color:    #2875EC;
+                    opacity:  1;
+                    font-size: 20px;
+                }
+            }
+            div.name {
+                font-size: 20px;
+                color: #346BB2;
+                margin-bottom: 10px;
+            }
+            label.text {
+                height: 60px;
+                margin-bottom: 10px;
+            }
+            .reason {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            label.reason-optional {
+                height: 60px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+    .request-item {
+        background: white;
+        border: 1px solid black;
+        height: 101px;
+        margin-bottom: 15px;
+        padding: 0px;
+
+        .image {
+            border-right: 1px solid black;
+            float: left;
+            width: 100px;
+            height: 100px;
+
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position-y: center;
+        }
+        .description {
+            margin-left: 105px;
+            width: 67%;
+            p.request {
+                font-size: 12px;
+                color: #346BB2;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            .price {
+                float: right;
+                position: relative;
+                top: -25px;
+                left: -15px;
+                font-weight: bold;
+                font-size: 15px;
+            }
+            p.name {
+                font-size: 14px;
+                color: #346BB2;
+                font-weight: bold;
+                margin-bottom: 0px;
+            }
+            p.text {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+ion-side-menu {
+    .request {
+        background: white;
+        margin: 10px;
+        border: 1px solid black;
+        padding: 0px;
+        height: 101px;
+
+        .image {
+            border-right: 1px solid black;
+            float: left;
+            width: 100px;
+            height: 99px;
+
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
+        .description {
+            margin-left: 105px;
+            width: 67%;
+            p.title {
+                font-size: 11px;
+                color: #346BB2;
+                font-weight: bold;
+                margin-bottom: 0px;
+            }
+        }
+    }
+}

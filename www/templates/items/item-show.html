@@ -1,0 +1,78 @@
+<ion-view class="detail product" title="{{ item.type | capitalize }}">
+
+  <ion-nav-buttons side="right">
+    <button class="button" ng-show="myItem" ng-click="editItem(item.id); track('Product Detail','detail','Edit Tapped')">
+      Edit
+    </button>
+  </ion-nav-buttons>
+
+<ion-content has-bouncing="true">
+<div class="row" ng-if="missingItem">
+  <div class="col">
+    <div class="item wrap-text">
+    It looks like this item may have been deleted by the user. Try <a ui-sref="main.items">browsing again</a>.
+    </div>
+  </div>
+</div>
+ <div class="row">
+  <div class="col">
+      <h2>{{ item.name }}</h2>      
+  </div>
+</div>
+<image-filter image="{{item.image}}" data-class="horizontal-image" ng-if="item.image"></image-filter>
+<div class="row">
+  <div class="col" ng-if="contentLoaded && item.rate >= 0">   
+    <div class="highlight">${{ item.rate }}<span ng-if="item.unit !== 'None'">/{{ item.unit }}</span></div>
+  </div>
+  <div class="col" ng-if="contentLoaded && !item.rate && item.rate != 0">   
+    <div class="highlight">$Ask Me</div>
+
+  </div>
+  <div ng-if="item.charity_contrib.rate" class="charity large" ng-class="">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col" ng-class="{'italic': item.description==='Sample Description'}">   
+    {{ item.description === 'Sample Description' ? 'Your neighbor posted this without a description. No worries just click the button below and ask them to provide some details.' : item.description }}
+  </div>
+</div>
+<div class="row" ng-if="item.charity_contrib.rate"> 
+  <div class="col">
+    <span class="left-extreme">Profit: {{100 - item.charity_contrib.rate}}% </span>
+  </div>
+  
+  <div class="col">
+    <span class="left-extreme">Charity: {{item.charity_contrib.rate}}% </span>
+  </div>
+</div>
+<div class="row" ng-if="replies.length>0">
+<div class="col">
+    <h3>Replies</h3>
+</div>
+</div> 
+  <ion-list>
+    <ion-item class="reply tile horizontal" ng-repeat="reply in replies" ng-click="showConversation(reply.id, item.id)">
+        <div ng-if="myItem" back-image="{{users[reply.borrower].avatar || noAvatar(users[reply.borrower].gender)}}" class="thumb-image"></div>
+        <div ng-if="!myItem && reply.lenderMessages > 0" back-image="{{ users[reply.lender].avatar || noAvatar(users[reply.lender].gender) }}" class="thumb-image"></div>
+        <div ng-if="!myItem && reply.lenderMessages == 0" back-image="{{noAvatar(users[reply.lender].gender)}}" class="thumb-image"></div>
+        <div class="text">          
+          <h4 ng-if="myItem">{{users[reply.borrower].nickname}}. contacted you about this item</h4> 
+          <h4 ng-if="!myItem">You contacted <span ng-if="reply.lenderMessages > 0">{{reply.lender.nickname}} </span><span ng-if="!reply.lenderMessages > 0"> your neighbor</span> about this item</h4>  
+        </div>
+        <div class="meta">
+          <div class="messages">Messages: {{reply.borrowerMessages + reply.lenderMessages}}</div>
+          <div class="date">Latest: <span am-time-ago="reply.lastUpdated"></span></div>
+        </div>
+      </div>
+</ion-list>
+
+
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-positive" ng-hide="myItem || hasReplied || missingItem">
+  <div class="button-bar">
+    <button class="button button-positive" ng-click="replyPopup(); track('Product Detail','detail','Borrow Tapped')">Request to Borrow</button>
+    
+   </div>
+</ion-footer-bar>
+</ion-view>

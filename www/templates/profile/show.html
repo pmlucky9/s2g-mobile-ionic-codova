@@ -1,0 +1,50 @@
+
+
+<ion-view title="My Profile" hide-back-button="true" hide-menu-button="{{hideMenu}}">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="editProfile(user)">
+      Edit
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="account-info" has-header="true" has-bouncing="true" scrolling="false">
+   
+    <div class="row basic-info">
+      <div class="col col-33">
+        <div back-image="{{ user.avatar || noAvatar(user.gender) }}" class="upload user-avatar square-image"></div>
+      </div>
+      <div class="col col-67">   
+        <ul class="list">
+        <li><h3>{{ user.firstName }} {{ user.lastName }}</h3></li>
+        <li>{{ user.phone.cell }}</li>
+        <li>{{ user.email }}</li>
+        <li>{{ user.address.formattedAddress || user.address }}</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="lived-for">I have lived in <h3 class="inline">{{ neighborhood || 'the neighborhood'}}</h3> 
+        for {{ inYears(user.neighborhoodSince) }} </div>    
+        <div class="small">You control when your full name, address and phone is shared with your neighbors.</div>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <a class="item item-icon-right" ng-click="openCategories()">
+            Manage Lending Categories 
+            <i class="icon ion-chevron-right"></i>
+          </a>
+          <a class="item item-icon-right" ng-click="$emit('s2g:401')">
+            Logout
+            <i class="icon ion-chevron-right"></i>
+          </a>  
+        </div>
+      </div>
+    </div>
+
+ 
+  </ion-content>
+</ion-view>

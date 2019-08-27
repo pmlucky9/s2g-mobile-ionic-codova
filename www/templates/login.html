@@ -1,0 +1,42 @@
+
+<ion-view title="Login" class="intro login" animation="slide-left-right-ios7" ng-init="track('Login','Login','Page Viewed')">
+    <ion-content class="user-login" has-bouncing="false" scrolling="false">
+    <div class="row no-padding ">
+      <div class="col no-padding">
+        <form name="userLogin" novalidate>
+          <div class="form">
+            <div class="row no-padding">
+              <div class="col col-80 no-padding">
+                <div class="list">
+                  <label class="item item-input">
+                  <input type="email" placeholder="Email Address" required ng-model="user.email">
+                  </label>  
+                  <label class="item item-input">
+                  <input type="password" placeholder="Password" required ng-model="user.password">
+                  </label> 
+                </div>
+              </div>
+              <div class="col col-center no-padding right-button"> 
+                <button class="button button-positive right-arrow" ng-disabled="userLogin.$invalid || data.isLoading" ng-click="login(user); track('Login','Login','Login Tapped')" animate-on-loading data-text="Login" data-loading="{{data.isLoading}}">Login</button>
+              </div>
+            </div>
+            <div class="error" ng-show="data.loginError">
+              {{ errorMessage }}
+            </div>
+          </div> 
+        </form>
+        <div class="row buttons">
+          <div class="col padding align-center">
+            <button ng-if="!facebookLoggedIn" class="button button-positive button-block" ng-click="facebookLogin();track('Login','Login','Facebook Login Tapped')">Login with Facebook</button>
+            <button ng-if="facebookLoggedIn" class="button button-positive button-block" ng-click="facebookLogout();track('Login','Login','Facebook Logout Tapped')">Facebook Logout</button>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col padding align-center">    
+            <a class="button button-positive button-block" href="#/find-your-neighborhood" ng-click="track('Login','Login','Create Account Tapped')">Create an Account</a>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

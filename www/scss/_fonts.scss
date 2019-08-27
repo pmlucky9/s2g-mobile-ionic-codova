@@ -1,0 +1,37 @@
+$font-path : "../fonts/";
+
+//Helevetica Neue 35
+@font-face {
+	font-family: $font-thin;
+	src: url('#{$font-path}/HelvN_35_0.eot'); /* IE9 Compat Modes */
+  	src: url('#{$font-path}/HelvN_35_0.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$font-path}/HelvN_35_0.woff') format('woff'), /* Modern Browsers */
+       url('#{$font-path}/HelvN_35_0.ttf')  format('truetype') /* Safari, Android, iOS */
+	}
+ 
+//Helevetica Neue 45
+@font-face {
+  font-family: $font-light;
+  src: url('#{$font-path}/HelvN_45_0.eot'); /* IE9 Compat Modes */
+  src: url('#{$font-path}/HelvN_45_0.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$font-path}/HelvN_45_0.woff') format('woff'), /* Modern Browsers */
+       url('#{$font-path}/HelvN_45_0.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+//Helevetica Neue 65
+@font-face {
+  font-family: $font-medium;
+  src: url('#{$font-path}/HelvN_65_0.eot'); /* IE9 Compat Modes */
+  src: url('#{$font-path}/HelvN_65_0.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$font-path}/HelvN_65_0.woff') format('woff'), /* Modern Browsers */
+       url('#{$font-path}/HelvN_65_0.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+//Helevetica Neue 75
+@font-face {
+  font-family: $font-bold;
+  src: url('#{$font-path}/HelvN_75_0.eot'); /* IE9 Compat Modes */
+  src: url('#{$font-path}/HelvN_75_0.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('#{$font-path}/HelvN_75_0.woff') format('woff'), /* Modern Browsers */
+       url('#{$font-path}/HelvN_75_0.ttf')  format('truetype') /* Safari, Android, iOS */
+}

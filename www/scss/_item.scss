@@ -1,0 +1,262 @@
+.item {
+	color: $base-color;
+    &.wrap-text {
+    	white-space: normal;
+    }
+    h3 	{
+    font-size:16px;
+    }
+
+    &.tile {
+    border: 0px solid transparent;
+    padding: 0px;
+    .highlight {
+    	font-size: 16px;
+    	padding-top:0px;
+      &.small {
+        font-size:14px;
+        padding-top:4px;
+        }
+    	}
+    box-shadow: 1px 1px 2px $core-light;
+    h4 {
+  		color: $base-color;
+  		margin-top: 4px;
+      }	
+    }  
+    &.mine {
+    	
+    }
+    &.vertical {
+    	padding: 0px;
+  		.text {
+        width:100%;
+  		}
+  		.banner {
+  			background-color:$positive;
+  			text-align:center;
+  			.text {
+  				color:$light;
+  				position:absolute;
+  				font-size: ceil($font-size-base * 2.25); 
+  				line-height: 1em; 
+  		  	max-height:100%;
+  		  	max-width:100%;
+  		  	left:0;
+  		  	right:0;
+  		  	top:0;
+  		  	bottom:0;
+  		  	margin:auto;
+  		  	padding:15%; 
+  			}
+  		}
+  		.highlight {
+        float:left;
+  		}
+    }
+    &.full-height-vertical {
+    	position: relative;
+  		img {
+  			width: 100%;
+  			height: auto; 
+  		}
+  		.overlay-text {
+  			top: 2px;
+  			left: 10px;
+  			width: 95%;
+  			height: 300px;
+  			position: absolute;
+  			z-index: 10;
+  			color: white;
+  			font-size: 20px;
+  			font-family: $font-family-med;
+  			white-space: normal;
+  			line-height: 25px;
+  			text-shadow: 1px 1px 1px $core-med;
+  		}
+  		.action-button {
+  			position: absolute;
+  			bottom: 10px;
+  			right: 10px;
+  			border-radius: 6px;
+  			font-family: $font-family-med;
+  			font-size: 12px;
+  			min-width: 70px;
+  			line-height: 24px;
+  			min-height: 24px;
+  		}
+    }
+    &.horizontal {
+    	
+    	font-size:$font-size-small;
+    	margin-bottom:$gutter;
+    	position:relative;
+    	.image-100 {
+			width:100%;
+			img {
+				width:100%;
+			}
+		}
+		
+		.text {
+			width:80%;
+			float:left;
+			padding:1% 10px;
+		}
+		.headline {
+			width:100%;
+			@include display-flex; 
+			h3 {
+				@include  flex($fg: 1, $fs: null, $fb: null)
+			}
+			.date {				
+				width:35px;
+				font-size:80%;
+				white-space:normal;
+				line-height:1em;
+				text-align:right;
+				color:$core-med-light;
+			}
+		}
+		.meta {
+			width:100%;
+			background-color:lighten($core-light, 10%);
+			font-size:80%;
+			white-space:normal;
+			line-height:1em;
+			position:absolute;
+			bottom:0px;
+			padding:4px 6px 4px 22%;
+			left:0;
+			.date {
+				float:right;
+				text-align:right;
+			}
+			.messages {
+				float:left;
+			}
+		}
+		
+		.description {
+			clear:both;
+			line-height:1em;
+			white-space:normal;
+		}
+		&.message {
+    	padding:10px;
+    	background-color:transparent;
+    	border: 0px solid transparent;
+    	white-space: normal;
+    	@include display-flex;
+    	.thumb {
+	  		width: 50px;
+	  		height: 50px;
+	  		padding:0px;
+	  		@include  flex($fg: auto, $fs: auto, $fb: 50px);
+	    }
+	    .timestamp {
+	    	color:$core-med-light;
+	    	font-size:80%;
+	    }
+	    .text {
+	    padding-top:0px !important;
+	    width:auto;
+	    @include  flex($fg: 1, $fs: null, $fb: 80%)
+
+	    }
+    }
+    
+    
+    }
+    &.empty {
+    	padding:10px;
+    	white-space:normal;
+    }
+    &.small-padding {
+    	padding:5px 15px;
+    }
+    &.dark-bg, &.dark-bg h3 {
+      color:$white;
+    }
+    
+}
+
+
+.profile {
+	.item-radio {
+		font-size:16px;
+		.icon {
+		font-size:24px;
+		padding-righ:10px;
+		}
+	}
+}
+
+.top-margin .item:first-of-type {
+    margin-top:$gutter;
+}
+
+.neighbor-detail {
+	margin:10px;
+	border:1px solid $core-med-light;
+	background-color: $core-light;
+	font-size:$font-size-small;
+	h4 {
+		color:$core-med;
+		margin:4px 0px;
+		font-size:$font-size-small;
+	}
+	
+}
+
+.account-info {
+	.lived-for {
+		h3 { white-space:nowrap}
+	}
+}
+.padding-small {
+	padding:$content-padding-small;
+}
+
+.home {
+  h2 {
+      font-family:$font-family-thin;
+      color:$base-color;
+    }
+    
+  .item {
+    white-space:normal;
+    padding:$content-padding-small;
+    h3 {
+      white-space:normal;
+      color:$base-color;
+      font-family:$font-family-med;
+    }
+    &.dark-bg {
+      h3 {
+        color:$white;
+      }
+    }
+    
+    .icon {
+      color:$positive;
+      font-size:44px;
+      line-height: 44px;
+      text-align:right;
+    }
+    .button {
+      min-height:36px;
+      line-height:36px;
+    }
+    .large-button-row {
+      .button {
+        font-size:22px;
+        margin-top:6px;
+        margin-bottom:6px;
+      }
+    }
+
+  }
+}
+
+

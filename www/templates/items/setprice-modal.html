@@ -1,0 +1,36 @@
+<div class="modal">
+  <form name="priceForm" novalidate>
+    <ion-header-bar class="bar-positive">
+      <div class="button" ng-click="closeModal()">Cancel</div>
+      <h1 class="title">Set Price</h1>
+      <button type="submit" class="button" ng-click="doneOptions(priceForm.$valid)">Done</button>
+    </ion-header-bar>
+    <ion-content>
+      <div class="padding">
+        <div class="highlight">
+          <label class="item item-input name large">
+            <span>$</span> <input type="number" step="0.01" placeholder="Set Your Price*" ng-model="selectedOptions.rate" ng-Required="true" name="rate">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="error clearfix" ng-show="submitted && priceForm.rate.$error.required">Please set your rate for this item.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3>Period</h3>
+          <ul class="list">
+            <li class="item" ng-class="{'selected':(selectedOptions.unit == $index)}" ng-repeat="option in modalOptions" ng-click="selectOption($index)"><span ng-if="(option !== 'None')">per </span>
+              {{option}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col padding">
+      HINT: Items for rent can be priced at a 1/10 of retail cost per day.
+      </div>
+    </ion-content>
+  </form>
+</div>

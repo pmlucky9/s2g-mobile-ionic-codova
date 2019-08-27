@@ -1,0 +1,15 @@
+
+<ion-view class="confirm" title="Your Neighborhood?" ng-init="track('Confirm Your Neighborhood','Login','Page Viewed')">
+  <ion-content has-bouncing="false" scroll="false" class="loading">
+    <div class="loading-panel"><span class="loading-icon ion-loading-b"></span><span class="text">Loading...</span></div>
+    <div class="find-neighborhood-map" map-canvas="user.location" geojson="geojson" size="fullscreen" page="confirm"></div>  
+    <div class="address">{{ user.address.route }}<br/> {{ user.address.city }}, {{ user.address.state }}</div>
+    <h2 class="neighborhood">{{ user.neighborhood.name }}</h2>
+  </ion-content>
+  <div class="bar bar-footer bar-positive">
+    <div class="button-bar">
+      <a class="button button-positive" ng-click="goBack();track('Confirm Your Neighborhood','Login','No Tapped')">No</a>
+      <a class="button button-calm" ng-click="neighborhoodConfirmed(user);track('Confirm Your Neighborhood','Login','Yes Tapped')">Yes</a>
+    </div>
+  </div>
+</ion-view>

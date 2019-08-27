@@ -1,0 +1,10 @@
+  <ion-footer-bar align-title="left" class="bar-positive icon-bar">
+    <div class="button-bar">
+      <button class="button button-large left entypo-tag" ng-click="createProduct(); track('Create','root','Page Viewed')"></button>
+      <a class="button entypo-home" ui-sref="main.home"></a>
+      <a class="button entypo-plus-circled" ui-sref="main.invite" ng-click="track('Invite','root','Page Viewed')"></a>
+      <a class="button entypo-address" ui-sref="main.neighborhood"></a>
+      <a class="button entypo-inbox" ui-sref="main.feed"></a>
+      <button class="button button-large entypo-megaphone right" ng-click="createShoutout(); track('Request','root','Page Viewed')"></button>
+    </div>
+  </ion-footer-bar>

@@ -1,0 +1,137 @@
+.googlemaps {
+ background: $white url('../img/powered-by-google-on-white@2x.png') top right no-repeat;
+ height:16px;
+ width:100%;
+ background-size:auto 100%;
+ }
+
+.italic {
+	font-style:italic;
+}
+.underlined {
+	text-decoration:underline;
+	color:$main-med;
+}
+.align-right {
+	text-align: right;
+	float: right;
+}
+
+.align-left {
+	text-align: left;
+	float: left;
+}
+.align-center {
+	text-align:center;
+}
+.no-padding {
+	padding:0px;
+}
+.no-padding-top {
+	padding-top:0px;
+}
+.no-padding-rl {
+	padding-left:0px;
+	padding-right:0px;
+}
+.no-padding-r {
+	padding-right:0px;
+}
+.no-padding-l {
+	padding-left:0px;
+}
+.margin-left {
+	margin-left:5px;
+}
+.margin-right {
+	margin-left:5px;
+}
+
+.vert-center {
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.margin {
+	margin: $content-padding;
+}
+
+.small {
+	font-size:.8em;
+	line-height:1em;
+}
+.flex-box {
+	@include display-flex;
+}
+
+.charity {
+	background:transparent url('../img/Charity_Icon.png') no-repeat 0 0;
+	width:20px;
+	height:20px;
+	background-size:100%;
+}
+.charity.large {
+	height:30px;
+	width:30px;
+}
+
+.col-15 {
+  @include flex(0, 0, 15%);
+  max-width: 15%;
+}
+
+.col-85 {
+  @include flex(0, 0, 85%);
+  max-width: 85%;
+}
+.loading-block {
+	font-size:17px;
+	text-align:center;
+	line-height:17px;
+	margin-top:10px;
+
+	overflow-y: hidden;
+	max-height: 33px; /* approximate max height */
+
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.loading-block.closed {
+	max-height: 0;
+	color:$base-background-color;
+	margin-top:0px;
+}
+.loading-block.hideme {
+	display: none
+}
+.loading-panel {
+	font-size:17px;
+	line-height:17px;
+}
+.flex-column {
+	@include display-flex;
+	@include flex-direction(column);
+	@include justify-content(space-around);
+	height:100%;
+	.last-row {
+      margin-bottom:25px;
+   }
+}
+
+.short-screen {
+	.hide-on-short-screen {
+		display:none;
+	}
+	.last-row {
+		margin-bottom:15px;
+	}
+	.after-hidden-row {
+		margin-top:5px;
+	}
+}
+
+.animate-height {
+	@include transition(height 250ms ease-in-out 0);
+}

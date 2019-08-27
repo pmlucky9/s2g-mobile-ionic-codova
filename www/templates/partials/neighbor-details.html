@@ -1,0 +1,17 @@
+<!-- requires the neighborhoodSince service, also add this to controller 
+$scope.inYears = function(date){
+   return neighborhoodSince.inYears(date);
+ } -->
+
+<div class="row no-padding" ng-controller="neighborDetailCtrl">
+  <div class="col-80 padding-small">
+  <h4>About {{neighbor.firstName}} </h4>       
+  <ul>
+    <li>In the neighborhood for {{ inYears(neighbor.neighborhoodSince) }} </li>
+    <li>Distance from you: {{ distance }}</li>
+  </ul>
+  </div>
+  <div class="col-20" ng-if="convoLoaded">
+    <div class="square-image" back-image="{{neighbor.avatar || noAvatar}}"></div>
+  </div>
+</div>

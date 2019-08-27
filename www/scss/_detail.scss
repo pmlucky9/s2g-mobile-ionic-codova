@@ -1,0 +1,27 @@
+.detail {
+	h2, .h2 {
+		margin-bottom:0px;
+	}
+	.highlight {
+		font-size: $font-size-large;
+	}
+	//currently only used on edit screen
+	.edit.image {
+		display: block;
+  		width: 100%;
+  		position: relative;
+  		height: 0;
+  		padding: 75% 0 0 0;
+  		overflow: hidden;
+		img {
+			position:absolute;
+		  	display:block;
+		  	width:100%;
+		  	top:-100%;
+		  	bottom:-100%;
+		  	right:0;
+		  	left:0;
+		  	margin:auto;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ionicframework.appgyverstarter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MyNeighbor</name>
+    <description>
+        Borrow, Lend and Give It All Away!
+    </description>
+    <author email="seb_martel@yahoo.com" href="http://www.myneighbor.com">
+        MyNeighbor
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+
+    <!-- preferences copied from AppGyver - are they necessary? -->
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <!-- <preference name="DisallowOverscroll" value="false" /> -->
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="KeyboardShrinksView" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="PaginationMode" value="unpaginated"/>
+    <preference name="PageLength" value="0"/>
+    <preference name="PaginationBreakingMode" value="page"/>
+    <preference name="GapBetweenPages" value="0"/>
+    <preference name="ViewIgnoresStatusBar" value="true" />
+</widget>

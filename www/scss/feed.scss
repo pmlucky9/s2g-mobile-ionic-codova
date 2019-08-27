@@ -1,0 +1,69 @@
+ion-view.activity-feed {
+    .request {
+        background: white;
+        margin: 10px;
+        border: 1px solid black;
+        padding: 0px;
+        height: 101px;
+    }
+
+    .image {
+        border-right: 1px solid black;
+        float: left;
+        width: 100px;
+        height: 99px;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+
+        .user-image {
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+
+            position: relative;
+            width: 35px;
+            height: 35px;
+            left: 60px;
+            top:3px;
+            border: 1px solid black;
+            background-color: white;
+        }
+    }
+    .description {
+        margin-left: 105px;
+        width: 67%;
+        p.title {
+            font-size: 19px;
+            color: #346BB2;
+            font-weight: bold;
+            margin-bottom: 0px;
+            line-height: 20px;
+            padding-top: 6px;
+        }
+        .close {
+            float: right;
+            font-size: 20px;
+            position: relative;
+            top: -20px;
+            margin-right: 15px;
+        }
+        p.subtitle {
+            font-size: 14px;
+            color: #346BB2;
+            font-weight: bold;
+            margin-bottom: 0px;
+            margin-top: 10px;
+        }
+        p.text {
+            margin-bottom: 5px;
+        }
+        .price {
+            float: right;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+    }
+}

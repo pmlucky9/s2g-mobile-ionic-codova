@@ -1,0 +1,10 @@
+<ion-modal-view class="product edit create" ng-controller="items.itemCreateCtrl">
+<form name="itemEdit" novalidate >
+	<ion-header-bar class="bar-positive fix-buttons">
+		<a class="button" ng-click="cancel()">Cancel</a>
+		 <h1 class="title">{{ pageTitle }}</h1>
+		<a class="button" ng-click="saveItem(itemEdit.$valid)" ng-disabled="image.isSaving || data.isSaving" animate-on-loading data-text="Post" data-loading="{{data.isSaving}}">Post</a>
+	</ion-header-bar>
+	<ng-include src="'/templates/items/edit-form.html'" ng-controller="items.editFormCtrl"></ng-include>
+</form>
+</ion-modal-view>

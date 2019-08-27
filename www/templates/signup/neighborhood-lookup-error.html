@@ -1,0 +1,51 @@
+<ion-view class="intro neighborhood-not-found" title="Sorry!">
+<!-- hide-nav-bar="true" -->
+    <ion-content has-bouncing="false" class="find-location-pane">
+    <div class="row top">
+        <div class="col">
+          <h3>You entered: {{entry.address}}</h3>
+        </div>
+      </div>
+      <form name="addressError" novalidate>
+      <div class="row no-padding">
+          <div class="col no-padding">
+            <div class="form">
+              <div class="row no-padding">
+                <div class="col col-center col-80 no-padding">
+                  <div class="list">
+                    <label class="item item-input-wrapper">
+                      <input type="email" name="email" placeholder="Email Address" ng-model="user.email" required>
+                    </label>   
+                  </div>
+                </div>
+                <div class="col col-center no-padding right-button"> 
+                  <button class="button button-positive right-arrow" ng-click="sendErrorDetails(); track('Neighborhood Not Found','Login','Email Submitted')" ng-disabled="addressError.$invalid" ng-show="errorType=='address'">Send</button> 
+                  <button class="button button-positive right-arrow" ng-click="sendErrorDetails(); track('Neighborhood Not Active','Login','Email Submitted')" ng-disabled="addressError.$invalid" ng-show="errorType=='neighborhood'">Send</button>  
+                </div>
+              </div>         
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col">
+          <div class="message" ng-show="errorType=='neighborhood'">
+            <h2>We haven't reached your neighborhood yet. We will notify you when we expand to your area</h2>
+          </div>
+          <div class="message" ng-show="errorType=='address'">
+            <h2>Google our address provider doesn’t recognize this specific address. Please enter your email above and we will try and sort out.</h2>
+          </div>
+          <div class="message">
+            <h3>Please try your address again if you like.</h3>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+
+    <div class="bar bar-footer bar-positive">
+      <div class="button-bar">
+        <a class="button button-positive" ng-click="goBack()">Back</a>
+      </div>    
+    </div>
+
+</ion-view>

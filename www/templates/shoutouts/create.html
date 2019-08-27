@@ -1,0 +1,14 @@
+
+<div class="modal detail shoutout edit create" ng-controller="shoutouts.createCtrl">
+<form name="itemEdit" novalidate ng-controller="items.editFormCtrl">
+	<ion-header-bar class="bar-positive fix-buttons">
+	<a class="button" ng-click="closeShoutoutModal()">Cancel</a>
+	<h1 class="title">Create Request</h1>
+	 <button class="button" animate-on-loading data-text="Post" ng-class="(itemEdit.$invalid) ? 'invalid' : 'valid'" data-loading="{{data.isSaving}}" ng-disabled="data.isSaving" ng-click="saveShoutout(itemEdit.$valid)">Post</button>
+	</ion-header-bar>
+
+  	<ng-include src="'/templates/shoutouts/edit-form.html'"></ng-include>
+  
+</form>
+</div>
+

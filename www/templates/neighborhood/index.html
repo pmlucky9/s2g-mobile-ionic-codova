@@ -1,0 +1,51 @@
+<ion-view class="neighborhood" title="Neighborhood" hide-back-button="true">
+  <ion-content has-bouncing="false" padding="false" id="neighborhood-container">
+  	<div class="row no-padding">
+	  	<div class="col no-padding">
+		    <div class="neighborhood-map loading">
+		    	<div class="loading-panel"><span class="loading-icon ion-loading-b"></span><span class="text">Loading...</span></div>
+		    	<div ng-if="data.isLoaded" map-canvas="user.location" geojson="geojson" fullscreen="fullscreen" page="neighbor"></div>
+		    	<div class="drag-handle" ng-click="resizeMap()" ng-class="fullscreen ? 'ion-chevron-up' : 'ion-chevron-down' "></div>
+		    </div>
+		    <div id="neighborhood-lists">
+		    	<div style="position:relative">
+			    	<h3>Active Neighbors</h3>
+			    	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" class="carousel-container" delegate-handle="users">
+			    		<ion-slide class="items-carousel" ng-repeat="users_row in users | list_array_by_columns:3">
+				        <div class="row">
+					        <div class="col col-33 item" ng-repeat="user in users_row">
+					        	<div class="rank">{{user.points}}</div>
+					        	<div class="square-image picture" back-image="{{ user.neighbor.avatar || noAvatar(user.neighbor.gender) }}"></div>
+					        </div>
+				       	</div>
+				    	</ion-slide>   
+						</ion-slide-box>
+				    <div class="prev ion-chevron-left" for="users" ng-click="goToPreviousSlide('users')"></div>
+				    <div class="next ion-chevron-right" for="users" ng-click="goToNextSlide('users')"></div>
+			    	Top Neighbors
+		    	</div>
+		    	<div style="position:relative">
+		    		<h3>Popular Items</h3>
+		    		<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" class="carousel-container" delegate-handle="items">
+			    		<ion-slide class="items-carousel" ng-repeat="items_row in items | list_array_by_columns:3">
+				        <div class="row">
+				        	<div class="col col-33 item" ng-repeat="item in items_row">
+				        		<div class="rank">{{item.points}}</div>
+										<div class="square-image picture" back-image="{{ item.item.image }}" ng-click='showItem(item.item.id)'></div>
+				        	</div>
+				        </div>
+				    	</ion-slide>
+						</ion-slide-box>
+
+			    	<div class="prev ion-chevron-left" for="items" ng-click="goToPreviousSlide('items')"></div>
+			    	<div class="next ion-chevron-right" for="items" ng-click="goToNextSlide('items')"></div>
+
+		    		Items available to your Neighbors
+
+		    	</div>
+		    </div>
+    </div>
+  </div>
+  </ion-content>
+  <ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

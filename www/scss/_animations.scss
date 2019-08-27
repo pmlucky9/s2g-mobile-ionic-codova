@@ -1,0 +1,28 @@
+
+
+.state-slideup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+.state-slideup.ng-enter,
+.state-slideup.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.state-slideup.ng-enter {
+    top: 100%;
+}
+.state-slideup.ng-enter-active {
+    top: 0;
+}
+.state-slideup.ng-leave {
+    top: 0;
+}
+.state-slideup.ng-leave-active {
+    top: -100%;
+}

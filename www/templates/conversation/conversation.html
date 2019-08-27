@@ -1,0 +1,57 @@
+<ion-view class="conversation product" title="Conversation" input-in-footer>
+<ion-content has-bouncing="true" scroll="true" delegate-handle="convoScroll">
+  <ion-refresher on-refresh="getConversation(); track('Conversation','detail','Pull To Refresh')"
+       pulling-text="Pull to refresh..."
+       refreshing-text="Refreshing!"
+       refreshing-icon="ion-loading-c">                   
+  </ion-refresher>
+  <ion-list ng-if="data.convoLoaded && data.itemLoaded">
+    <ion-item class="convo-intro tile horizontal" >
+    <div class="row">
+    <div class="col">
+    <h4 ng-if="data.myItem && data.isItem ">{{neighbor.nickname}}. contacted you about your</h4>   
+    <h4 ng-if="data.myItem && data.isShoutout ">{{neighbor.nickname}}. contacted you about your request for </h4>
+    <h4 ng-if="!data.myItem && data.isItem">You contacted <span ng-if="conversation.lenderMessages > 0">{{neighbor.nickname}}. about <pronoun data-gender="{{neighbor.gender}}" data-neutral=""></pronoun></span><span ng-if="!conversation.lenderMessages > 0"> your neighbor about their</span> </h4>
+    <h4 ng-if="!data.myItem && data.isShoutout">You contacted <span ng-if="conversation.lenderMessages > 0">{{neighbor.nickname}}. about <pronoun data-gender="{{neighbor.gender}}" data-neutral="the"></pronoun></span><span ng-if="!conversation.lenderMessages > 0"> your neighbor about their</span> request for</h4>
+    </div>
+    </div>
+      <div class="row item-detail" ng-click="showItem(data.itemType, item.id)">
+        <div class="col-20" ng-show="data.isItem">
+          <div class="square-image" back-image="{{ item.image }}" type="item"></div>
+        </div>
+        <div class="col-80 padding">
+            
+          <h2>{{ item.name || item.title }}</h2>    
+          <div class="highlight"ng-if="item.rate >= 0">${{ item.rate }}<span ng-if="item.unit !== 'None'">/{{ item.unit }}</span></div>
+          <div class="highlight" ng-if="!item.rate && item.rate != 0">$Ask Me</div>           
+        </div> 
+      </div>
+      <div class="neighbor-detail" ng-show="showNeighbor">
+          <ng-include src="'/templates/partials/neighbor-details.html'"></ng-include>
+      </div> 
+    </ion-item>   
+  </ion-list>
+    
+  <ion-list>
+
+  <ion-item class="message horizontal" ng-repeat="message in conversation.messages.slice().reverse()">
+      <div class="convo-image" ng-if="message.recipient == currentUser.id" back-image="{{neighbor.avatar || noAvatar(neighbor.gender)}}"></div>
+      </div>
+      <div class="text">
+        <div class="timestamp"><span am-time-ago="message.timestamp"></span></div>
+        {{ message.content }}
+      </div>
+      <div class="convo-image" ng-if="message.sender == currentUser.id" back-image="{{me.avatar || noAvatar(me.gender)}}"></div>
+    </ion-item>
+  </ion-list>
+
+  </ion-content> 
+  <ion-footer-bar align-title="left" class="bar-positive" >
+  <div class="button-bar chat">
+  <label class="item item-input">
+    <input placeholder="Send a message" type="text" ng-model="newMessage"> 
+   </label> 
+<button class="button button-positive" ng-click="sendMessage()" ng-disabled="data.messageLoading" animate-on-loading data-text="Send" data-loading="{{data.messageLoading}}">Send</button>
+</div>
+</ion-footer-bar>
+</ion-view>

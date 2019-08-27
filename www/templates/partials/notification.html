@@ -1,0 +1,16 @@
+
+<ion-modal-view class="notification ">
+  <ion-content has-bouncing="false" scroll="false">
+  <div class="row">
+    <div class="avatar" ng-click="goToMsg( message.url )">
+      <div class="square-image" back-image="{{ message.image }}" type="{{ message.gender || 'profile' }}"></div>
+    </div>
+    <div class="col content" ng-click="goToMsg( message.url )" >
+      <div ng-if="message.from" class="bold">{{message.from}}: {{message.subject}}</div>
+      {{message.alert}} 
+    </div>
+    <div class="close ion-close" ng-click="closeNotification()">
+    </div>
+  </div>
+  </ion-content>
+</ion-modal-view>

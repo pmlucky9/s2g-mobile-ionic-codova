@@ -1,0 +1,24 @@
+<!--
+  This template loads for the 'tab.about' state (app.js)
+-->
+<ion-view title="About Us" class="about" ng-init="track('About','root','Page Viewed')">
+<ion-content has-bouncing="false" padding="true">
+  <div class="row">
+ 	<div class="col flex ">
+ 		<div class="align-center">
+ 		<img class="logo" alt="MyNeighbor Logo" src="/img/MyNeighbor_Logo_Horizontal.png" />
+ 		</div>
+  		<div class="intro-text align-center">MyNeighbor unites neighbors and neighborhoods by encouraging and streamlining the sharing of goods and services.</div>
+  		<div>
+  		We are located in the Madrona neighborhood of Seattle, WA. We are working hard to expand the service to all neighborhoods. Feel free to contact us, if you need help or have feedback or just want to chat. 
+  		</div>
+  		<ul>
+  			<li class="item"><span>Feedback</span><a class="underlined" ng-click="composeEmail('MyNeighbor application feedback!', '', ['feedback@myneighbor.com'])">Feedback@myneighbor.com</a></li>
+  			<li class="item"><span>Need Help?</span><a class="underlined" ng-click="composeEmail('Help request from the MyNeighbor application', '', ['help@myneighbor.com'])">Help@myneighbor.com</a></li>
+  		</ul>
+  		<div class="small underlined align-center light" ng-click="openURL('http://www.myneighbor.com')">Our Website</div>
+  	</div>
+  </div>
+</ion-content>
+<ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

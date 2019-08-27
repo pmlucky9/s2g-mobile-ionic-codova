@@ -1,0 +1,239 @@
+.item-input {
+  padding: 5px 7px;
+}
+.option-item .item{
+  padding-top:13px;
+  padding-bottom:13px;
+  padding-left:7px;
+
+}
+.option-item.highlight {
+  margin-bottom:0px;
+  color:$main-med;
+  .item {
+    font-size:$font-size-large;
+  }
+}
+.highlight {
+  label {
+    color:$main-med;
+    font-size:$font-size-large;
+  }
+  input[type="number"] {
+    font-size:$font-size-large;
+    color:$main-med;
+    padding: 2px 4px 0px 4px;
+    line-height:$font-size-large + 2;
+    height:$font-size-large + 2;
+  }
+}
+.item-radio {
+  font-size:$font-size-large;
+  input {
+    &:checked ~ .item-content {
+      /* style the item content when its checked */
+      background: $main-med;
+      color:$white;
+    }
+    &:checked ~ .radio-icon {
+      color:$white;
+    }
+  }
+  .item-content {
+    color:$white;
+    padding: 7px 10px;
+    background-color:$core-med-light;
+  }
+  .radio-icon {
+    padding: 7px 10px;
+  }
+}
+
+
+.error, .item.error {
+  color:$error;
+  border:0px solid transparent;
+}
+.notes {
+  font-size:10px;
+  color:$core-med-light;
+  padding-left:3px;
+  padding-top:3px;
+}
+
+
+// Set font for forms
+label,
+input,
+select,
+textarea {
+  @include font-shorthand($form-font-size, normal, $form-line-height); // Set size, weight, line-height here
+}
+input,
+select,
+textarea {
+  font-family: $font-family-base; // And only set font-family here for those that need it (note the missing label element)
+}
+button, .button {
+  font-family: $font-family-sans-serif;
+}
+
+.range .label {
+  font-family: $font-family-bold;
+  font-size: $font-size-small;
+}
+
+.editable-image {
+  opacity:1;
+  .icon {
+    font-size:36px;
+    line-height:36px;
+    width: 36px;
+    height: 36px;
+    z-index:50;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    vertical-align:center;
+    display:none;
+  }
+  &.upload {
+    border: 1px dashed $positive;
+    .add {
+      color:$positive;
+      top: 0; left: 0; bottom: 0; right: 0;
+      vertical-align:center;
+      padding-top:10%;
+      display:block
+    }
+  }
+  &.loading-image {
+    opacity:0.6;
+    .loading {
+      color:$core-med-light;
+      top: 0; left: 0; bottom: 0; right: 0;
+      display:block;
+    }
+  }
+  &.save-error {
+    opacity:0.6;
+    .error-icon {
+      color:$error;
+      top: 0; right: 3px;
+      display:block;
+      
+    }
+  }
+}
+.product.edit {
+  .upload {
+    border: 0px dashed $positive;
+    text-align:center;
+    i {
+      font-size:100px;
+      position:absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top:-20px;
+      height:100px;
+      width:100px;
+      color:$main-med;
+      display:block;
+      }
+    .instructions {
+      position:absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom:0;
+      font-size:12px;
+      color:$core-dark;
+      font-family:$font-family-bold;
+      }
+    }
+  }
+
+// Shared size and type resets
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  display: block;
+  padding-top: 2px;
+  height: $form-line-height;
+  color: $input-color;
+  vertical-align: middle;
+  font-size: $form-font-size;
+  line-height: $form-line-height;
+}
+
+.large input[type="text"] {
+  font-size: $font-size-large;
+  line-height: $font-size-large + 2;
+  @include s2g-placeholder($input-color-placeholder, $font-family-base, $font-size-large + 2, $font-size-large);
+  height:$font-size-large + 2;
+  padding:0px 2px;
+}
+/* fix to alignment of text/fields on android */
+.platform-android .large input[type="text"], .platform-android .large input[type="number"] {
+  height:$font-size-large + 8;
+  @include s2g-placeholder($input-color-placeholder, $font-family-base, $font-size-large + 4, $font-size-large);
+  }
+.platform-android label.large span {
+  height:21px;
+}
+
+.button-bar.chat {
+  .item-input {
+    flex-grow:3;
+    @include flex(4);
+    input {
+    padding-right:0px;
+    }
+  }
+  .button {
+    @include flex(1, null, 40px);
+  }
+}
+/******* SPECIFIC FORM STYLES *******/
+.button-help {
+  font-size:20px;
+  padding: 4px 5px;
+}
+.item.disabled {
+  color:rgba(77, 77, 77, 0.6);
+}
+
+/* Profile Edit */
+
+.account-info {
+  .error {
+    padding:4px 6px;
+  }
+  .list.no-padding {
+    .col {
+      padding:0px;
+    }
+
+  }
+}
+.item-input-inset .item-search.item-input-wrapper input {
+  line-height:32px;
+  padding-top:6px;
+}
+.search-bar button {
+  font-size:26px;
+  padding-right:0px;
+}
+

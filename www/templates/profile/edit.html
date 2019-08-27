@@ -1,0 +1,129 @@
+<ion-view title="{{pageTitle}}" hide-menu-button="false" hide-back-button="true">
+ <form name="myProfile" novalidate class="profile">
+ <ion-nav-buttons side="right">
+    
+    <a class="button" ng-hide="data.newProfile" ng-class="(myProfile.$invalid) ? 'invalid' : 'valid'" ng-click="updateProfile(user, myProfile.$valid)" animate-on-loading data-text="&nbsp;Save&nbsp;" data-loading="{{data.isLoading}}" ng-disabled="data.isLoading || image.isSaving">
+      
+    </a>
+    
+  </ion-nav-buttons>
+  <ion-nav-buttons side="left">    
+     <a class="button button-icon icon ion-ios7-arrow-back" ng-show="editProfile" ng-click="cancelEdit(); track('Edit Profile','edit','Back Tapped')">
+    </a>
+  </ion-nav-buttons>
+
+    <ion-content class="account-info" has-header="true" has-bouncing="true" scrolling="false">
+      <!--start top edit section -->
+      <div class="row basic-info no-padding-rl">
+        <div class="col col-33">
+          <div class="editable-image square-image"  ng-class="{'change': user.avatar, 'upload':!user.avatar, 'loading-image':image.isSaving, 'save-error':image.saveError}" ng-click="uploadPhoto()" back-image="{{ user.avatar || noAvatar(user.gender) }}">
+              <div class="icon add ion-plus"></div>
+              <div class="icon loading "><i class="ion-loading-b"></i></div>
+              <div class="icon error-icon"><i class="ion-alert-circled"></i></div>
+          </div>
+          
+        </div>
+        <div class="col col-67">   
+          <div class="list no-padding">
+            <div class="row no-padding-top">
+              <div class="col col-85">
+                <label class="item item-input">
+                  <input type="text" placeholder="First Name *" required ng-model="user.firstName" name="firstName" lose-focus-on-return>
+                </label>
+              </div>
+            </div>
+            <div class="row" ng-show="(myProfile.firstName.$dirty && myProfile.firstName.$error.required) || (data.formSubmitted && myProfile.firstName.$error.required)">
+              <div class="col">
+                <div class="error clearfix" >First name is required.</div> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-85">
+                <label class="item item-input">
+                  <input type="text" placeholder="Last Name *" required ng-model="user.lastName" name="lastName" lose-focus-on-return>
+                </label>
+              </div>
+            </div>
+            <div class="row" ng-show="(myProfile.lastName.$dirty && myProfile.lastName.$error.required) || (data.formSubmitted && myProfile.lastName.$error.required)">
+              <div class="col col-85">
+                <div class="error clearfix" >Last name is required.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-85">
+                <label class="item item-input">
+                  <input type="tel" placeholder="Cell Phone *" ng-model="user.phone.cell" id="phone" name="phone" required lose-focus-on-return>
+                </label>
+              </div>
+              <div class="col col-15 vert-center button-help ion-help-circled" ng-click="showMessage(messages.phone)">
+              </div>
+            </div>
+            <div class="row" ng-show="(myProfile.phone.$dirty && myProfile.phone.$error.required) || (data.formSubmitted && myProfile.phone.$error.required)">
+                <div class="col col-85">
+                  <div class="error clearfix">Phone is required.</div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col col-85">
+                <label class="item item-input disabled">
+                  {{ user.email }}
+                </label>
+              </div>
+            </div>
+          </div><!-- end list -->
+        </div><!-- end column -->
+      </div><!-- end top section -->
+      <div class="row">
+      <div class="col">
+        <div class="address"> {{ user.address.formattedAddress || user.address }} </div>
+        <div class="lived-for">I have lived in <h3 class="inline">{{ neighborhood || 'the neighborhood'}}</h3></div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col">
+        <div class="list">
+          <a class="item item-icon-right" ng-click="openModal()">
+            For {{ inYears(user.neighborhoodSince) }}
+            <i class="icon ion-chevron-right"></i>
+          </a>
+        </div>
+       </div>
+       <div class="col col-15 vert-center button-help ion-help-circled" ng-click="showMessage(messages.yearsInHood)">
+       </div>
+      </div>
+      <div class="row">
+        <div class="col col-25">
+            <label>Gender: </label>
+        </div>
+            <div class="col">
+            <label class="item item-radio">
+              <input type="radio" name="gender" value="female" ng-model="user.gender">
+              <div class="item-content"><i class="icon ion-woman"></i>&nbsp;Female</div>
+            </label>
+            </div>
+            <div class="col">
+            <label class="item item-radio">
+              <input type="radio" name="gender" value="male" ng-model="user.gender">
+              <div class="item-content"><i class="icon ion-man"></i>&nbsp;Male</div>
+            </label>
+            </div>
+            <div class="col col-15 vert-center button-help ion-help-circled" ng-click="showMessage(messages.gender)">
+            
+            </div>
+        </div>
+    <div class="row">
+    <div class="col">
+    <div class="small">This information is used to communicate and verify users live in the neighborhood. For more details, see our <a class="underlined" ng-click="openURL('http://www.myneighbor.com/privacy-policy.html')">privacy policy</a>.</div>
+    </div>
+    </div>
+    </ion-content>
+    <div class="bar bar-footer bar-positive hide-on-keyboard-open" ng-show="data.newProfile">
+      <div class="button-bar">
+      <a class="button button-calm"  animate-on-loading ng-class="(myProfile.$invalid) ? 'invalid' : 'valid'" ng-click="updateProfile(user, myProfile.$valid); track('Create Profile','Login','Setup Account Tapped');" data-loading="{{data.isLoading}}" ng-disabled="data.isLoading">
+        Setup Account
+      </a>
+      </div>
+    </div>
+   
+   </form>
+</ion-view>

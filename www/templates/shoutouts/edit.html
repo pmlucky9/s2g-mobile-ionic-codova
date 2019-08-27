@@ -1,0 +1,14 @@
+<ion-view class="detail shoutout edit" title="Edit {{ item.type | capitalize }}">
+
+<form name="itemEdit" novalidate>
+<ng-include src="'templates/shoutouts/edit-form.html'"></ng-include>
+
+<ion-footer-bar align-title="left" class="bar-positive">
+   <div class="button-bar">
+    <a class="button button-positive" ng-click="saveShoutout(itemEdit.$valid)" animate-on-loading data-text="Save" data-loading="{{data.isSaving}}" ng-disabled="data.isSaving" ng-class="(itemEdit.$invalid) ? 'invalid' : 'valid'">Save</a>
+    <a class="button button-positive" ng-click="deleteShoutoutPopup()">Delete</a>
+    <a class="button button-positive" ng-click="goBack(); track('Edit Request','edit','Cancel Tapped')">Cancel</a>
+   </div>
+</ion-footer-bar>
+</form>
+</ion-view>

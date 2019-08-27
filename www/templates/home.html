@@ -1,0 +1,58 @@
+<ion-view title="Home" class="home" hide-back-button="true">
+<ion-content has-bouncing="false" padding="false" scroll="false" class="has-footer">
+<div class="flex-column" adjust-by-height>
+  <div class="row hide-on-short-screen">
+    <div class="col align-center">
+      <h2>{{items.headline}}</h2>
+    </div>
+  </div>
+  <div class="row after-hidden-row">
+    <div class="col">
+      <div class="item">
+     <h3>{{items.first.intro}}</h3>
+      <div class="row no-padding large-button-row">
+        <div class="col col-50 no-padding-l">
+          <a class="button button-positive button-full" ui-sref="{{items.first.buttons[0].target}}">{{items.first.buttons[0].label}}</a>
+        </div>  
+        <div class="col col-50 no-padding-r">
+          <a class="button button-positive button-full" ui-sref="{{items.first.buttons[1].target}}">{{items.first.buttons[1].label}}</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="item dark-bg" back-image="{{items.second.image}}">
+        <h3>{{items.second.intro}}</h3>
+        <div>{{items.second.text}}</div>
+        <div class="col align-right">
+          <a class="button button-positive" ui-sref="{{items.second.buttons[0].target}}">{{items.second.buttons[0].label}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row last-row">
+    <div class="col col-50">
+      <div class="item" ui-sref="{{items.third[0].target}}">
+      <h3>{{items.third[0].headline}}</h3>
+      <div class="row no-padding">
+        <div class="col col-66 no-padding">{{items.third[0].text}}</div>
+        <div class="col col-33 icon no-padding {{items.third[0].icon}}"></div>
+      </div>
+      </div>
+    </div>
+    <div class="col col-50">
+      <div class="item">
+        <h3>{{items.third[1].headline}}</h3>
+        <div class="row no-padding">
+          <div class="col col-66 no-padding">{{items.third[1].text}}</div>
+          <div class="col col-33 icon no-padding {{items.third[1].icon}}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>
+<ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

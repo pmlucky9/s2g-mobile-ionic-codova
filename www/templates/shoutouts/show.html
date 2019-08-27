@@ -1,0 +1,59 @@
+<ion-view class="requests show-request" title="Lend to">
+<ion-nav-buttons side="right">
+    <button class="button" ng-click="editShoutout()" ng-show="myItem">
+      Edit
+    </button>
+</ion-nav-buttons>
+
+<ion-content>
+<div ng-if="contentLoaded">
+  <div class="row">
+  <div class="col col-20">
+    <div back-image="{{ neighbor.avatar || noAvatar(neighbor.gender) }}" class="square-image" /></div>
+  </div>
+  <div class="col">
+    <h2 ng-if="!myItem">{{ neighbor.nickname }}</h2>
+    <h2 ng-if="myItem">You</h2>
+    <div class='borrow'>Would like to <span class="emphasis">borrow</span> a {{shoutout.type}}</div>
+  </div>
+  </div>
+  
+  <div class="row">
+  <div class="col">
+    <h2>{{shoutout.title}}</h2>
+    <div>{{shoutout.description}}</div>
+    <div class="small">Requested: <span class="date" am-time-ago="shoutout.dateCreated"></span>  </div>
+  </div>
+  </div>
+  <div class="neighbor-detail" ng-show="!myItem">
+    <ng-include src="'/templates/partials/neighbor-details.html'"></ng-include>
+  </div>
+</div>
+<div class="row" ng-if="replies.length>0">
+<div class="col">
+    <h3>Replies</h3>
+</div>
+</div> 
+  <ion-list>
+    <ion-item class="reply tile horizontal" ng-repeat="reply in replies" ng-click="showConversation(reply.id, shoutout.id)">
+        <div ng-if="myItem" back-image="{{users[reply.lender].avatar || noAvatar(users[reply.lender].gender)}}" class="thumb-image"></div>
+        <div ng-if="!myItem" back-image="{{ currentUser.avatar || noAvatar(currentUser.gender) }}" class="thumb-image"></div>
+        <div class="text">          
+          <h4 ng-if="myItem">{{users[reply.lender].nickname}}. contacted you about this item</h4> 
+          <h4 ng-if="!myItem">You contacted {{ neighbor.nickname }}. about this request</h4>  
+        </div>
+        <div class="meta">
+          <div class="messages">Messages: {{reply.borrowerMessages + reply.lenderMessages}}</div>
+          <div class="date">Latest: <span am-time-ago="reply.lastUpdated"></span></div>
+        </div>
+      </div>
+</ion-list>
+</ion-content>
+
+<ion-footer-bar align-title="left" class="bar-positive" ng-hide="myItem || hasReplied">
+  <div class="button-bar" >
+    <button class="button button-positive" ng-click="lendPopup()">Lend to {{ neighbor.nickname }}.</button>
+  </div>
+</ion-footer-bar>
+
+</ion-view>

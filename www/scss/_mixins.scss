@@ -1,0 +1,33 @@
+// Placeholder text
+// --------------------------------------------------
+
+@mixin s2g-placeholder($color: $input-color-placeholder, $font-family:$font-family-base, $line-height:$form-line-height, $font-size:$form-font-size) {
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $color;
+    font-family:$font-family;
+    line-height:$line-height;
+    font-size:$font-size;
+    height: $line-height;
+    padding-top:2px; 
+
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    font-family:$font-family;
+    line-height:$line-height;
+    font-size:$font-size;
+    height: $line-height;
+    padding-top:2px;
+
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-family:$font-family;
+    line-height:$line-height;
+    font-size:$font-size;
+    height: $line-height;
+    padding-top:2px;
+
+  }
+}
+

@@ -1,0 +1,28 @@
+<ion-view class="lend-requests" title="{{ pageTitle }}" left-buttons="leftButtons" hide-back-button="true">
+  <ion-content has-bouncing="true">
+  <ion-refresher on-refresh="refreshShoutouts(); track('Request Detail','detail','Pull To Refresh')"
+       pulling-text="Pull to refresh..."
+       refreshing-text="Refreshing!"
+       refreshing-icon="ion-loading-c">                   
+    </ion-refresher>
+    <div class="loading-block" ng-class="contentLoaded ? 'closed' : ''"><span class="loading-icon ion-loading-b"></span> <span class="text">Loading...</span></div>
+    <ion-list class="top-margin" ng-show="contentLoaded">  
+      <ion-item class="request tile horizontal" ng-repeat="shoutout in shoutouts | orderBy:'-dateCreated'" ng-click="showShoutout(shoutout.id); track('Request Detail','detail','Item Tapped')" ng-class="{mine: currentUser.userId == shoutout.borrower}">
+        <div ng-if="viewType!=='mine'" back-image="{{ users[shoutout.borrower].avatar || noAvatar(users[shoutout.borrower].gender) }}" class="thumb-image"></div>
+        <div ng-if="viewType=='mine'" back-image="{{ currentUser.avatar || noAvatar(currentUser.gender) }}"  class="thumb-image"></div>
+      <div class="text">
+      <div class="headline">
+        <h3><span ng-if="shoutout.title">{{shoutout.title }}</span></h3>
+         <div class="date" am-time-ago="shoutout.dateCreated"></div>
+      </div>  
+      <div class="description">{{shoutout.description | truncate:90}}</div>
+      </div>
+    </ion-item>
+    <would-you-card ng-show="contentLoaded"></would-you-card>
+    <ion-item ng-if="shoutouts.length === 0 && viewType == 'mine'" class="empty tile">
+        You have no requests. Submit a <span class="emphasis">request</span> below.
+    </ion-item>
+    </ion-list>   
+  </ion-content>
+  <ng-include src="'/templates/partials/top-level-bottom-bar.html'"></ng-include>
+</ion-view>

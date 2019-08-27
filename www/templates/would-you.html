@@ -1,0 +1,161 @@
+<ion-view title="Would You?">
+
+<ion-nav-bar class="bar bar-header bar-positive">
+  <ion-nav-back-button side="left" class="button button-icon icon ion-ios7-arrow-back back-button">
+  </ion-nav-back-button>
+  <ion-nav-buttons side="right">
+  	<button class="button" ng-click="finishQuestions()" ng-show="state === 'showQuestions'">Done</button>
+  </ion-nav-buttons>
+</ion-nav-bar> 
+
+<ion-header-bar class="bar bar-header bar-positive slide-in-left" ng-show="state === 'autoCreate'">
+  <h1 class="title">Auto Create Items?</h1>
+</ion-header-bar>
+
+<ion-content class="full-height" has-bouncing="false"> 
+	<!-- Intro screen -->
+	<div class="question wouldyou" ng-show="state === 'showIntro'">
+		<div>
+			<div class="text item-text-wrap">
+				Start contributing to {{ neighborhood || 'your neighborhood' }} now by answering a few questions about items and services you would {{ type }}.
+			</div>
+		</div>
+		<div ng-show="type === 'borrow'" class="list">
+			<div class="item item-icon-left">
+				<i class="icon ion-checkmark"></i>
+				<div>Answer <strong>Yes</strong> if you would borrow the suggested item</div>
+			</div>
+			<div class="item item-icon-left">
+				<i class="icon ion-checkmark"></i>
+				<div>Visit <strong>Borrow</strong> to view items available in {{ neighborhood || 'your neighborhood' }}</div>
+			</div>
+		</div>
+		<div ng-show="type === 'lend'" class="list">
+			<div class="item item-icon-left">
+				<i class="icon ion-checkmark"></i>
+				<div>Answer <strong>Yes</strong> if you would lend the suggested item</div>
+			</div>
+			<div class="item item-icon-left">
+				<i class="icon ion-checkmark"></i>
+				<div>Review your items and add them to your inventory</div>
+			</div>
+			<div class="item item-icon-left">
+				<i class="icon ion-checkmark"></i>
+				<div>Visit <strong>My Items</strong> to edit and personalize them</div>
+			</div>
+			<div class="disclaimer">Images are for illustrative purposes only</div>
+		</div>
+		<!-- Don't show again -->
+		<div class="list">
+			<div class="item item-checkbox">
+	      <label class="checkbox">
+	        <input type="checkbox" ng-model="skipIntro">
+	      </label>
+	      I understand, no need to remind me again
+	    </div>
+		</div>
+	</div>
+
+	<!-- Question Slidebox -->
+	<ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)" ng-animate="'box'" ng-show="state === 'showQuestions'" active-slide="questionIndex">
+	 	<ion-slide class="question wouldyou" ng-repeat="question in questions" ng-show="questionsLoaded">
+	 		<div class="text item-text-wrap clear-both" ng-show="type === 'borrow'">	
+			Would you <span class="emphasis">borrow</span> this {{ question.sample.type }} from a neighbor?</div>
+			<div class="text item-text-wrap clear-both" ng-show="type === 'lend'">	
+			Do you <span class="emphasis">have</span> and would you <span class="emphasis">lend</span> this {{ question.sample.type }} to a neighbor?</div>
+
+			<div class="wouldyou-overlay">
+				<div back-image="{{question.sample.image}}" data-type="item" class="horizontal-image"><span></span></div>			
+			</div>
+			<h2>{{question.sample.name}}</h2>
+			<div class="wouldyou-counter">
+	 			{{ questionIndex + 1 }} of {{ slideCount }}
+	 		</div>
+		</ion-slide>
+	</ion-slide-box>
+
+	<!-- Set Completed Screen -->
+	<div class="question wouldyou" ng-show="state === 'setComplete'">
+		<div class="text item-text-wrap">Thanks for contributing to {{ neighborhood || 'the neighborhood'}}!
+		</div>
+		<div class="centered-image">
+			<img src="{{ victoryImage }}" title="Our Logo Here" />
+		</div>
+		<div class="list wouldyou-victory">
+			<button class="item button button-positive wouldyou-victory" ng-click="loadMoreQuestions()">More Questions</button>
+			<br>
+			<button class="item button button-positive wouldyou-victory" ng-click="closeWouldYou(true)">I'm Done</button>
+		</div>
+	</div>
+
+	<!-- Victory screen - User has answered all available questions -->
+	<div class="question wouldyou" ng-show="state === 'endOfQuestions'">
+		<div class="text item-text-wrap">Congratulations! You've contributed to {{ neighborhood || 'your neighborhood' }} by completing all of our 'Would you {{ type }}?' questions. Check back later for more questions.
+		</div>
+		<div class="wouldyou-image">
+			<img src="{{ logo }}" title="Our Logo Here" />
+		</div>
+		<div class="list wouldyou-victory">
+			<button class="item button button-positive wouldyou-victory" ng-click="closeWouldYou(true)">Exit</button>
+		</div>
+	</div>
+
+	<!-- Auto create item screen - User finished lend session -->
+	<div class="create-list padding animate-show wouldyou" ng-animate="'fade'" ng-show="state === 'autoCreate'">
+		<div class="col text wouldyou-center">Create these items now</div>
+					
+		<ion-list>
+			<ion-item class="tile horizontal wouldyou-item" ng-click="toggleAll()">
+				<div class="row no-padding">
+					<div class="col text">
+						<h3 class="wouldyou-center">Auto create in MY ITEMS</h3>
+					</div>
+					<div class="col col-20">
+						<label class="checkbox float-right">
+			        <span class="ion-ios7-circle-outline wouldyou-toggle" ng-show="!setToggle"></span>
+			        <span class="ion-checkmark-circled wouldyou-toggle" ng-show="setToggle"></span>
+			      </label>
+					</div>
+				</div>
+			</ion-item>				
+			<ion-item class="tile horizontal wouldyou-item" ng-repeat="item in interestItems" ng-click="deselectItem($index)">
+				<div class="row no-padding">
+					
+					<div class="thumb-image" back-image="{{item.image}}"></div>
+					
+					<div class="col text">
+					<h3>{{item.name}}</h3>
+					</div>
+					
+					<div class="col col-20">
+						<label class="checkbox float-right">
+							<span class="ion-ios7-circle-outline wouldyou-toggle" ng-show="!item.save"></span>
+			        <span class="ion-checkmark-circled wouldyou-toggle" ng-show="item.save"></span>
+			      </label>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>
+
+<ion-footer-bar class="bar-positive wouldyou" ng-hide="state === 'setComplete' || state === 'endOfQuestions'">
+	<!-- Footer to exit intro screan -->
+	<div class="button-bar" ng-show="state === 'showIntro'">
+		<button class="button button-positive" ng-click="exitIntro()">Let's Go!</button>
+	</div> 
+
+	<!-- Footer to answer questions -->
+	<div class="button-bar" ng-show="state === 'showQuestions'">
+    <button class="button button-positive" ng-class="{'activated': questions[questionIndex].response === false }" ng-click="answer(false, questionIndex)">No</button>
+    <button class="button button-positive" ng-class="{'activated': questions[questionIndex].response }" ng-click="answer(true, questionIndex)">Yes</button>
+  </div>
+
+	<!-- Footer for auto create screen -->
+	<div class="button-bar" ng-show="state === 'autoCreate'">
+    <button class="button button-positive" ng-click="completeSet()">Cancel</button>
+    <button class="button button-positive" ng-click="autoCreateItems()">Save</button>
+  </div>
+</ion-footer-bar>
+
+</ion-view>

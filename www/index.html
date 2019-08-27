@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>MyNeighbor</title>
+
+    <!-- ionic css -->
+    <!-- <link href="lib/css/ionic.css" rel="stylesheet"> -->
+
+    <!-- your app's css -->
+    <link href="css/app.css" rel="stylesheet">
+    <script src="js/onerror.js"></script>
+    <script src="js/console.log.js"></script>
+
+    <!-- google place api -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&libraries=geometry,places&sensor=false"></script>
+
+    <!-- angularjs scripts -->
+ <!--   <script src="http://code.ionicframework.com/1.0.0-beta.11/js/ionic.bundle.js"></script>
+
+<script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
+
+    <script src="lib/ionic/js/ionic.js"></script>
+    <script src="lib/ionic/js/angular/angular.js"></script>
+    <script src="lib/ionic/js/angular/angular-animate.js"></script>
+    <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
+    <script src="lib/ionic/js/angular-ui/angular-ui-router.js"></script>
+    <script src="lib/ionic/js/ionic-angular.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="lib/moment/angular-moment.min.js"></script>
+
+  <!-- cordova.js is served from localhost to ensure the correct version -->
+  <script src="http://localhost/cordova.js"></script>
+  <!-- hack for android 4.4 and up -->
+  <!-- <script id="ag-cordova-loader"></script> -->
+  <!-- <script src="/js/cordova-loader.js"></script>   -->
+
+  <script src="components/steroids-js/steroids.js"></script>
+
+  <script src="components/steroids-addons/index.js"></script>
+
+    <!-- your app's script -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services/s2g.js"></script>
+    <script src="js/services/user.js"></script> 
+    <script src="js/services/pushService.js"></script>
+    <script src="js/services/GAService.js"></script>
+    <script src="js/services/global.js"></script>
+    <script src="js/services/camera.js"></script>
+    <script src="js/services/analytics.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/loginModalCtrl.js"></script>
+    <script src="js/controllers/intro/introCtrl.js"></script>
+    <script src="js/controllers/signup/signupCtrl.js"></script>
+    <script src="js/controllers/signup/errorCtrl.js"></script>
+    <script src="js/controllers/inviteCtrl.js"></script>
+    <script src="js/controllers/wouldYouCtrl.js"></script>
+    <script src="js/controllers/editCategoriesCtrl.js"></script>
+    <script src="js/controllers/neighborhood/indexCtrl.js"></script>
+    <script src="js/controllers/items/indexCtrl.js"></script>
+    <script src="js/controllers/items/showCtrl.js"></script>
+    <script src="js/controllers/items/itemEditCtrl.js"></script>
+    <script src="js/controllers/items/itemCreateCtrl.js"></script>
+    <script src="js/controllers/items/editFormCtrl.js"></script>
+    <script src="js/controllers/conversation/conversationCtrl.js"></script>   
+    <script src="js/controllers/shoutouts/indexCtrl.js"></script>
+    <script src="js/controllers/shoutouts/showCtrl.js"></script>
+    <script src="js/controllers/shoutouts/createCtrl.js"></script>
+    <script src="js/controllers/shoutouts/editCtrl.js"></script>
+    <script src="js/controllers/profile/showCtrl.js"></script>
+    <script src="js/controllers/profile/editCtrl.js"></script>
+    <script src="js/controllers/partials/neighborDetailCtrl.js"></script>
+    <script src="js/controllers/developers.js"></script>
+    <script src="js/controllers/itemOfTheWeekCtrl.js"></script>
+    <script src="js/controllers/feedCtrl.js"></script>
+    <script src="js/controllers/homeCtrl.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/fixtures.js"></script>
+    <script src="components/lodash/dist/lodash.min.js"></script>
+    <script src="lib/wordwrap.js"></script>
+    <!-- DIRECTIVES -->
+    <script src="js/directives/wouldyou.js"></script>
+    <script src="js/directives/images.js"></script>
+    <script src="js/directives/drawmap.js"></script>
+    <script src="js/directives/facebook.js"></script> 
+
+
+  </head>
+
+  <!-- 
+    'starter' is the name of this angular module (js/app.js)
+  -->
+  <body ng-app="app">
+
+    <!-- 
+      The nav bar that will be updated as we navigate between views
+      Additional attributes set its look, nav-bar animation and icons
+      Icons provided by Ionicons: http://ionicons.com/ 
+    -->
+<!--     <ion-nav-bar type="bar-positive" 
+             animation="nav-title-slide-ios7" 
+             back-button-type="button-icon" 
+             back-button-icon="ion-ios7-arrow-back"></ion-nav-bar> -->
+
+    <!-- 
+      The views will be rendered in the <nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <div ng-controller="MainCtrl">
+    
+      <ion-nav-view>
+<!--         <ion-nav-bar type="bar-positive" animation="nav-title-slide-ios7">
+          <ion-nav-back-button class="button-icon ion-ios7-arrow-back">Back </ion-nav-back-button> 
+        </ion-nav-bar> -->
+      </ion-nav-view>
+    </div>
+  </body>
+
+</html>

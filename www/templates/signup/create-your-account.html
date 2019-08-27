@@ -1,0 +1,39 @@
+<ion-view title="Welcome!" class="intro" ng-init="track('Create Account','Login','Page Viewed')">
+    <ion-content class="user-creation" has-header="true" has-bouncing="false" scrolling="false">      
+    <div class="row no-padding ">
+      <div class="col no-padding">
+        <form onSubmit="return false" class="form" name="createForm" novalidate>
+          <div class="row no-padding">
+            <div class="col col-80 no-padding">
+              <div class="list">
+                <label class="item item-input">
+                <input type="email" placeholder="Email Address" name="email" ng-model="user.email" required>
+                </label>  
+                <label class="item item-input">
+                <input type="password" placeholder="New Password" name="password" ng-model="user.password" required>
+                </label> 
+              </div>
+            </div>
+            <div class="col col-center no-padding button-right"> 
+              <button class="button button-positive right-arrow" ng-click="createAccount(user); track('Create Account','Login','Create Tapped')" ng-disabled="createForm.email.$error.required || createForm.password.$error.required || data.isLoading" animate-on-loading data-text="Create" data-loading="{{data.isLoading}}"></button>
+            </div>
+          </div> 
+        </form>        
+      </div>
+    </div>
+    <div class="create-account-separator"><hr>OR<hr></div>
+    <div class="row">
+      <div class="col">
+        <mn-facebook></mn-facebook>
+        <div class="message"><h2>You're one of the first neighbors.</h2></div>
+        <div class="message"><h3>Create an account, invite your neighbors, and start borrowing and lending.</h3></div>
+      </div>
+    </div>
+    <div class="row terms">
+      <div class="col col-bottom">
+        <br><a class="underlined" ng-click="openURL('http://www.myneighbor.com/terms-of-service.html')">Terms of service</a>
+      </div>
+    </div>
+
+    </ion-content>
+</ion-view>
